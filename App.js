@@ -17,8 +17,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import TVTabBar from './TVTabBar';
-import VictoryDemo from './VictoryDemo';
+import TVTabBar from './src/TVTabBar';
+import VictoryDemo from './src/VictoryDemo';
 
 const tabs = [
   {
