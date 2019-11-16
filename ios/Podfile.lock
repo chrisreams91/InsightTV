@@ -215,6 +215,13 @@ PODS:
     - React-cxxreact (= 0.61.2-0)
     - React-jsi (= 0.61.2-0)
     - ReactCommon/jscallinvoker (= 0.61.2-0)
+  - RNSVG (7.2.1):
+    - React
+  - RNTVOSController (0.2.2):
+    - React-Core
+    - RNTVOSController/Default (= 0.2.2)
+  - RNTVOSController/Default (0.2.2):
+    - React-Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -245,6 +252,8 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNSVG (from `../node_modules/react-native-svg`)
+  - RNTVOSController (from `../node_modules/react-native-tvos-controller`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -300,6 +309,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
+  RNTVOSController:
+    :path: "../node_modules/react-native-tvos-controller"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -329,8 +342,10 @@ SPEC CHECKSUMS:
   React-RCTText: 581e1033b3a843dde73dbb270105f6f3d471f159
   React-RCTVibration: c3f47e4259e1ee8de8c18289b899926747819487
   ReactCommon: 50d24b6b7926edf43d8e847f246364926a7b739a
+  RNSVG: 6c8e8c6f9e5a0caf910dd25aa6e4216045426e1d
+  RNTVOSController: 1466c2ed9416dbff59800ae33f839f605383c2de
   Yoga: 1499aded49ba2086581fc4ac1c8fb4b82bef9789
 
-PODFILE CHECKSUM: 8c26cf6d0283d9f2a12031260ecb92f5b44066cb
+PODFILE CHECKSUM: 094fbaddb1e27afe1c1d0810a0968f8c8e61d422
 
 COCOAPODS: 1.7.2
