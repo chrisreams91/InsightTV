@@ -1,7 +1,6 @@
-/* @flow */
-import {random, range} from 'lodash';
-import React, {Component} from 'react';
-import {Image, View, Text} from 'react-native';
+import { random, range } from 'lodash';
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 
 import {
   VictoryChart,
@@ -51,63 +50,63 @@ class VictoryDemo extends Component<
   }
 
   generateRandomData(points: number = 6) {
-    return range(1, points + 1).map(i => ({x: i, y: i + random(-1, 2)}));
+    return range(1, points + 1).map(i => ({ x: i, y: i + random(-1, 2) }));
   }
 
   render() {
     return (
-      <View style={{alignItems: 'center', margin: 20, marginTop: 150}}>
-        <Text style={{marginTop: 50, fontSize: 100}}>FLEX METRICS !!!!</Text>
-        <View style={{flexDirection: 'row'}}>
-          <View style={{alignItems: 'center'}}>
+      <View style={{ alignItems: 'center', margin: 20, marginTop: 150 }}>
+        <Text style={{ marginTop: 50, fontSize: 100 }}>FLEX METRICS !!!!</Text>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ alignItems: 'center' }}>
             <VictoryChart width={500} theme={VictoryTheme.material}>
               <VictoryBar
                 width={500}
                 style={{
-                  labels: {fontSize: 30},
-                  data: {fill: 'tomato', opacity: 0.5},
+                  labels: { fontSize: 30 },
+                  data: { fill: 'tomato', opacity: 0.5 },
                 }}
                 data={[
-                  {x: 15, y: 20, label: 1, fill: 'red'},
-                  {x: 25, y: 30, label: 2, fill: 'orange'},
-                  {x: 35, y: 65, label: 3, fill: 'gold'},
-                  {x: 45, y: 50, label: 4, fill: 'blue'},
-                  {x: 55, y: 40, label: 5, fill: 'cyan'},
-                  {x: 65, y: 30, label: 6, fill: 'green'},
+                  { x: 15, y: 20, label: 1, fill: 'red' },
+                  { x: 25, y: 30, label: 2, fill: 'orange' },
+                  { x: 35, y: 65, label: 3, fill: 'gold' },
+                  { x: 45, y: 50, label: 4, fill: 'blue' },
+                  { x: 55, y: 40, label: 5, fill: 'cyan' },
+                  { x: 65, y: 30, label: 6, fill: 'green' },
                 ]}
               />
               <VictoryScatter
-                style={{data: {fill: 'black'}}}
+                style={{ data: { fill: 'black' } }}
                 data={[
-                  {x: 15, y: 20},
-                  {x: 25, y: 30},
-                  {x: 35, y: 65},
-                  {x: 45, y: 50},
-                  {x: 55, y: 40},
-                  {x: 65, y: 30},
+                  { x: 15, y: 20 },
+                  { x: 25, y: 30 },
+                  { x: 35, y: 65 },
+                  { x: 45, y: 50 },
+                  { x: 55, y: 40 },
+                  { x: 65, y: 30 },
                 ]}
               />
             </VictoryChart>
           </View>
-          <View style={{alignItems: 'center'}}>
+          <View style={{ alignItems: 'center' }}>
             <VictoryPie
               colorScale="qualitative"
               width={400}
               height={400}
               innerRadius={50}
               labelRadius={120}
-              style={{labels: {fontSize: 30}}}
+              style={{ labels: { fontSize: 30 } }}
               data={this.state.randomData}
-              animate={{duration: 1500}}
+              animate={{ duration: 1500 }}
             />
           </View>
 
-          <View style={{alignItems: 'center'}}>
+          <View style={{ alignItems: 'center' }}>
             <VictoryChart width={500}>
               <VictoryScatter
                 style={{
-                  tickValues: {fontSize: 30},
-                  labels: {fontSize: 30},
+                  tickValues: { fontSize: 30 },
+                  labels: { fontSize: 30 },
                 }}
                 data={[
                   {
@@ -159,4 +158,4 @@ class VictoryDemo extends Component<
   }
 }
 
-module.exports = VictoryDemo;
+export default VictoryDemo;

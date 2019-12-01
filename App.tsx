@@ -1,21 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, View, Text} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { View, Text } from 'react-native';
 
 import TVTabBar from './src/TVTabBar';
 import VictoryDemo from './src/VictoryDemo';
@@ -26,7 +10,7 @@ const tabs = [
     name: 'home',
     value: (
       <View>
-        <Text style={{fontSize: 300}}>TEST</Text>
+        <Text style={{ fontSize: 300 }}>TEST</Text>
       </View>
     ),
   },
@@ -37,7 +21,7 @@ const tabs = [
   },
 ];
 
-const App: () => React$Node = () => {
+const App = () => {
   return (
     <TVTabBar
       barColor="#00a1e0"
