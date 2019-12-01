@@ -1,7 +1,7 @@
 import React from 'react';
 import { Svg, Path, G, Circle } from 'react-native-svg';
 import State from './State';
-import data from './StateDimensions';
+import data from './StateDimensions.json';
 
 const GeoChart = () => {
   const fillStateColor = (state: String) => {
@@ -18,7 +18,7 @@ const GeoChart = () => {
   };
 
   const buildPaths = () => {
-    let paths = [];
+    const paths = [];
     for (let stateKey in data) {
       const path = (
         <State
@@ -33,14 +33,7 @@ const GeoChart = () => {
   };
 
   return (
-    <Svg
-      width="959"
-      height="593"
-      fill="blue"
-      stroke="red"
-      color="green"
-      viewBox="0 0 959 593"
-    >
+    <Svg width="959" height="593">
       <G>{buildPaths()}</G>
     </Svg>
   );

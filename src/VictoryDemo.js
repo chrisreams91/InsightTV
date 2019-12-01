@@ -10,7 +10,7 @@ import {
   VictoryPie,
 } from 'victory-native';
 
-/*  
+/*
     add the following line to node_modules/@types/victory/index.d.ts to fix type issue
     declare module "victory-native" { export * from "victory" }
 */
