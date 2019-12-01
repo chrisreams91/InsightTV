@@ -3,18 +3,23 @@ import { View, Text } from 'react-native';
 
 import TVTabBar from './src/TVTabBar';
 import VictoryDemo from './src/VictoryDemo';
+import GeoChart from './src/GeoChart/GeoChart';
+import { Tab } from './src/TVTabBar';
 
-const TestTab = () => (
-  <View>
-    <Text style={{ fontSize: 300 }}>TEST</Text>
-  </View>
-);
-
-const tabs = [
+const tabs: Tab[] = [
   {
-    key: 'home',
-    name: 'home',
-    value: <TestTab />,
+    key: 'Home',
+    name: 'Home',
+    value: <Text style={{ fontSize: 300 }}>TEST</Text>,
+  },
+  {
+    key: 'GeoChart',
+    name: 'GeoChart',
+    value: (
+      <View style={{ margin: 250 }}>
+        <GeoChart />
+      </View>
+    ),
   },
   {
     key: 'Victory',
@@ -30,7 +35,7 @@ const App = () => {
       textColor="white"
       selectedTextColor="red"
       tabs={tabs}
-      defaultTabKey="home"
+      defaultTabKey="GeoChart"
     />
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { TabBarIOS } from 'react-native';
 
-interface Tab {
+export interface Tab {
   key: string;
   name: string;
   value: JSX.Element;
