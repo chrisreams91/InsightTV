@@ -10,12 +10,11 @@ import {
   VictoryPie,
 } from 'victory-native';
 
-class VictoryDemo extends Component<
-  {},
-  {
-    randomData: Object,
-  },
-> {
+/*  
+    add the following line to node_modules/@types/victory/index.d.ts to fix type issue
+    declare module "victory-native" { export * from "victory" }
+*/
+class VictoryDemo extends Component<{}, { randomData: Object }> {
   constructor(props: Object) {
     super(props);
     this.state = {
