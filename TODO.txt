@@ -1,0 +1,10 @@
+map of US showing where orders are done in the last x days
+
+
+1:  https://github.com/react-native-community/react-native-maps 
+    google maps and just drop pins, requires api key
+
+
+2:  https://react-google-charts.com/geo-chart#region-geocharts
+    wrapper over google maps, requires api key
+    can region lock to USA including alaska

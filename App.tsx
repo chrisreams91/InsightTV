@@ -4,15 +4,17 @@ import { View, Text } from 'react-native';
 import TVTabBar from './src/TVTabBar';
 import VictoryDemo from './src/VictoryDemo';
 
+const TestTab = () => (
+  <View>
+    <Text style={{ fontSize: 300 }}>TEST</Text>
+  </View>
+);
+
 const tabs = [
   {
     key: 'home',
     name: 'home',
-    value: (
-      <View>
-        <Text style={{ fontSize: 300 }}>TEST</Text>
-      </View>
-    ),
+    value: <TestTab />,
   },
   {
     key: 'Victory',
