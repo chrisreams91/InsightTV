@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 
 import { TabBarIOS } from 'react-native';
 
@@ -8,46 +8,44 @@ interface Tab {
   value: JSX.Element;
 }
 
-export default class TVTabBar extends Component<
-  {
-    barColor: string;
-    textColor: string;
-    selectedTextColor: string;
-    tabs: Tab[];
-    defaultTabKey?: string;
-  },
-  { selectedTabKey: string }
-> {
-  state = {
-    selectedTabKey: this.props.defaultTabKey || this.props.tabs[0].key,
+interface Props {
+  barColor: string;
+  textColor: string;
+  selectedTextColor: string;
+  tabs: Tab[];
+  defaultTabKey?: string;
+}
+
+export const TVTabBar: React.StatelessComponent<Props> = props => {
+  const { barColor, textColor, selectedTextColor, tabs, defaultTabKey } = props;
+  const [selectedTabKey, setSelectedTabKey] = useState(
+    defaultTabKey || tabs[0].key,
+  );
+
+  const updateTab = (newTabKey: string) => {
+    if (selectedTabKey !== newTabKey) {
+      setSelectedTabKey(newTabKey);
+    }
   };
 
-  updateTab(newTabKey: string) {
-    if (this.state.selectedTabKey !== newTabKey) {
-      this.setState({
-        selectedTabKey: newTabKey,
-      });
-    }
-  }
+  return (
+    <TabBarIOS
+      unselectedTintColor={textColor}
+      tintColor={selectedTextColor}
+      barTintColor={barColor}
+    >
+      {tabs.map(tab => (
+        <TabBarIOS.Item
+          key={tab.key}
+          title={tab.name}
+          selected={selectedTabKey === tab.key}
+          onPress={() => updateTab(tab.key)}
+        >
+          {tab.value}
+        </TabBarIOS.Item>
+      ))}
+    </TabBarIOS>
+  );
+};
 
-  render() {
-    return (
-      <TabBarIOS
-        unselectedTintColor={this.props.textColor}
-        tintColor={this.props.selectedTextColor}
-        barTintColor={this.props.barColor}
-      >
-        {this.props.tabs.map(tab => (
-          <TabBarIOS.Item
-            key={tab.key}
-            title={tab.name}
-            selected={this.state && this.state.selectedTabKey === tab.key}
-            onPress={() => this.updateTab(tab.key)}
-          >
-            {tab.value}
-          </TabBarIOS.Item>
-        ))}
-      </TabBarIOS>
-    );
-  }
-}
+export default TVTabBar;
