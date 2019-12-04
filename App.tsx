@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import TVTabBar from './src/TVTabBar';
+import Home from './src/Home/Home';
 import VictoryDemo from './src/VictoryDemo';
 import GeoChart from './src/GeoChart/GeoChart';
 import { Tab } from './src/TVTabBar';
@@ -10,7 +11,7 @@ const tabs: Tab[] = [
   {
     key: 'Home',
     name: 'Home',
-    value: <Text style={{ fontSize: 300 }}>TEST</Text>,
+    value: <Home />,
   },
   {
     key: 'GeoChart',
@@ -35,7 +36,7 @@ const App = () => {
       textColor="white"
       selectedTextColor="red"
       tabs={tabs}
-      defaultTabKey="GeoChart"
+      defaultTabKey="Home"
     />
   );
 };

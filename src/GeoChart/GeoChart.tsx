@@ -1,5 +1,5 @@
 import React from 'react';
-import { Svg, Path, G, Circle } from 'react-native-svg';
+import { Svg, G } from 'react-native-svg';
 import State from './State';
 import data from './StateDimensions.json';
 
