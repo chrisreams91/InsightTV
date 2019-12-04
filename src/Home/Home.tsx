@@ -14,10 +14,14 @@ import {
 import SingleStat from '../components/SingleStat';
 
 const styles = StyleSheet.create({
+  container: { flex: 1, alignItems: 'center' },
   buttonContainer: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 300,
+    marginTop: 200,
+  },
+  singleStatsContainer: {
+    backgroundColor: 'red',
   },
   button: {
     height: 80,
@@ -27,9 +31,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 40,
     textAlign: 'center',
-  },
-  singleStatContainer: {
-    flex: 1,
   },
 });
 
@@ -47,7 +48,7 @@ const TabButton: React.StatelessComponent<ButtonProps> = props => {
       onPress={onPress}
       style={styles.button}
     >
-      <View>
+      <View style={{ justifyContent: 'center', flex: 1 }}>
         <Text style={styles.buttonText}>{text}</Text>
       </View>
     </TouchableHighlight>
@@ -58,18 +59,31 @@ interface Props {}
 
 const Home: React.StatelessComponent<Props> = props => {
   return (
-    <>
-      <View style={styles.singleStatContainer}>
-        <SingleStat title="Stat 1" value={12300} />
-        <SingleStat title="Stat 2" value={234000} />
-        <SingleStat title="Stat 3" value={3450} />
-      </View>
+    <View style={styles.container}>
       <View style={styles.buttonContainer}>
         <TabButton onPress={() => console.log('Day')} text="Day" />
         <TabButton onPress={() => console.log('Week')} text="Weekly" />
         <TabButton onPress={() => console.log('Month')} text="Month" />
       </View>
-    </>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          margin: 10,
+        }}
+      >
+        <View style={styles.singleStatsContainer}>
+          <SingleStat title="Stat 1" value={12300} />
+          <SingleStat title="Stat 2" value={234000} />
+          <SingleStat title="Stat 3" value={3450} />
+        </View>
+        <View style={styles.singleStatsContainer}>
+          <SingleStat title="Stat 4" value={122300} />
+          <SingleStat title="Stat 5" value={2000} />
+          <SingleStat title="Stat 6" value={34511220} />
+        </View>
+      </View>
+    </View>
   );
 };
 
