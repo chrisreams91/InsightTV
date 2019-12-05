@@ -30,15 +30,7 @@ const tabs: Tab[] = [
 ];
 
 const App = () => {
-  return (
-    <TVTabBar
-      barColor="#00a1e0"
-      textColor="white"
-      selectedTextColor="red"
-      tabs={tabs}
-      defaultTabKey="Home"
-    />
-  );
+  return <TVTabBar tabs={tabs} defaultTabKey="Home" />;
 };
 
 export default App;

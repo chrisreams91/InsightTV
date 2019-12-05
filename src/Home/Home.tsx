@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import SingleStat from '../components/SingleStat';
 import TabButton from '../components/TabButton';
 import axios from 'axios';
-import { number } from 'prop-types';
+import { useInterval } from '../util';
 
 const styles = StyleSheet.create({
   container: { flex: 1, alignItems: 'center' },
@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 200,
   },
-  singleStatsContainer: {
+  singleStatsContainer: { flex: 1, flexDirection: 'row', margin: 10 },
+  singleStatsColumn: {
     backgroundColor: 'red',
   },
   button: {
@@ -26,69 +27,39 @@ const styles = StyleSheet.create({
   },
 });
 
-interface Props {}
-// interface Data {
-//   name: string;
-//   value: string;
-// }
-
-const Home: React.StatelessComponent<Props> = props => {
+const Home: React.StatelessComponent = () => {
   const [data, setData] = useState({ name: '', value: '' });
-  const [counter, setCounter] = useState(1);
+  const [dateRange, setDateRange] = useState(1);
 
   const fetchData = async (id: number) => {
     const { data } = await axios.get(
       `https://pokeapi.co/api/v2/pokemon-species/${id}`,
     );
-    setData({ name: data.name, value: data.capture_rate });
+    setData({ name: data.name, value: String(id) });
   };
 
+  // use interval should fetch the same data every time with no params
+  // while datarange will be the trigger for filtering what current data is held
+
   useInterval(() => {
-    setCounter(counter + 1);
-    fetchData(counter);
-    console.log(counter);
+    fetchData(dateRange);
+    console.log(dateRange);
   }, 1000);
-
-  function useInterval(callback: () => void, delay: number) {
-    const savedCallback = useRef();
-
-    // Remember the latest callback.
-    useEffect(() => {
-      savedCallback.current = callback;
-    }, [callback]);
-
-    // Set up the interval.
-    useEffect(() => {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
-    }, [delay]);
-  }
 
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        <TabButton onPress={() => console.log('Day')} text="Day" />
-        <TabButton onPress={() => console.log('Week')} text="Weekly" />
-        <TabButton onPress={() => console.log('Month')} text="Month" />
+        <TabButton onPress={() => setDateRange(1)} text="Day" />
+        <TabButton onPress={() => setDateRange(7)} text="Weekly" />
+        <TabButton onPress={() => setDateRange(30)} text="Month" />
       </View>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          margin: 10,
-        }}
-      >
-        <View style={styles.singleStatsContainer}>
+      <View style={styles.singleStatsContainer}>
+        <View style={styles.singleStatsColumn}>
           <SingleStat title={data.name} value={data.value} />
           <SingleStat title="Stat 2" value={234000} />
           <SingleStat title="Stat 3" value={3450} />
         </View>
-        <View style={styles.singleStatsContainer}>
+        <View style={styles.singleStatsColumn}>
           <SingleStat title="Stat 4" value={122300} />
           <SingleStat title="Stat 5" value={2000} />
           <SingleStat title="Stat 6" value={34511220} />

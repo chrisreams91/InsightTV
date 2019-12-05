@@ -9,15 +9,12 @@ export interface Tab {
 }
 
 interface Props {
-  barColor: string;
-  textColor: string;
-  selectedTextColor: string;
   tabs: Tab[];
   defaultTabKey?: string;
 }
 
 export const TVTabBar: React.StatelessComponent<Props> = props => {
-  const { barColor, textColor, selectedTextColor, tabs, defaultTabKey } = props;
+  const { tabs, defaultTabKey } = props;
   const [selectedTabKey, setSelectedTabKey] = useState(
     defaultTabKey || tabs[0].key,
   );
@@ -29,11 +26,7 @@ export const TVTabBar: React.StatelessComponent<Props> = props => {
   };
 
   return (
-    <TabBarIOS
-      unselectedTintColor={textColor}
-      tintColor={selectedTextColor}
-      barTintColor={barColor}
-    >
+    <TabBarIOS unselectedTintColor="red" tintColor="red" barTintColor="#00a1e0">
       {tabs.map(tab => (
         <TabBarIOS.Item
           key={tab.key}
