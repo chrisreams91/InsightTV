@@ -44,7 +44,7 @@ const Home: React.StatelessComponent = () => {
   useInterval(() => {
     fetchData(dateRange);
     console.log(dateRange);
-  }, 1000);
+  }, 5000);
 
   return (
     <View style={styles.container}>
