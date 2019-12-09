@@ -15,6 +15,7 @@
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		56439441239E140A00C55FC8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56439440239E140A00C55FC8 /* File.swift */; };
 		D247F207BDA269275D18422D /* libPods-InsightTV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2712CE4B96232508C08785C8 /* libPods-InsightTV.a */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,8 @@
 		2712CE4B96232508C08785C8 /* libPods-InsightTV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InsightTV.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B0D57937B20C147C6E95C5 /* Pods-InsightTV-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsightTV-tvOS.release.xcconfig"; path = "Target Support Files/Pods-InsightTV-tvOS/Pods-InsightTV-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* InsightTV-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InsightTV-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5643943F239E140900C55FC8 /* InsightTV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InsightTV-Bridging-Header.h"; sourceTree = "<group>"; };
+		56439440239E140A00C55FC8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		952D61B5855552E727412DB5 /* Pods-InsightTV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsightTV.release.xcconfig"; path = "Target Support Files/Pods-InsightTV/Pods-InsightTV.release.xcconfig"; sourceTree = "<group>"; };
 		AAA745AC4339B63E37C1E93A /* Pods-InsightTV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsightTV.debug.xcconfig"; path = "Target Support Files/Pods-InsightTV/Pods-InsightTV.debug.xcconfig"; sourceTree = "<group>"; };
 		C775BE48D4E0F945F707023B /* libPods-InsightTV-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InsightTV-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,12 +132,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				56439440239E140A00C55FC8 /* File.swift */,
 				13B07FAE1A68108700A75B9A /* InsightTV */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* InsightTVTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				4C8A1C6903A660FDA7D6D260 /* Pods */,
+				5643943F239E140900C55FC8 /* InsightTV-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -202,6 +207,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1100;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -367,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				56439441239E140A00C55FC8 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +409,7 @@
 			baseConfigurationReference = AAA745AC4339B63E37C1E93A /* Pods-InsightTV.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = InsightTV/Info.plist;
@@ -411,6 +421,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = InsightTV;
+				SWIFT_OBJC_BRIDGING_HEADER = "InsightTV-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -420,6 +433,7 @@
 			baseConfigurationReference = 952D61B5855552E727412DB5 /* Pods-InsightTV.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = InsightTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -430,6 +444,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = InsightTV;
+				SWIFT_OBJC_BRIDGING_HEADER = "InsightTV-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -448,7 +464,37 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "InsightTV-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swit\n\n    /usr/lib/swift\n\n\n    /usr/lib/swift\n\n\n    /usr/lib/swift\n\n\n    /usr/lib/swift\n/usr/lib/swift $(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Charts\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBReactNativeSpec-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Folly-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RCTTypeSafety-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCharts\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNSVG-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNTVOSController-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-Core.common\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-CoreModules-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTAnimation-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTBlob-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTImage-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTLinking-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTNetwork-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTSettings-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTText-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsi-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsiexecutor-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsinspector-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Yoga-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/glog-tvOS\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -476,7 +522,37 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "InsightTV-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swit\n\n    /usr/lib/swift\n\n\n    /usr/lib/swift\n\n\n    /usr/lib/swift\n\n\n    /usr/lib/swift\n/usr/lib/swift $(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Charts\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBReactNativeSpec-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Folly-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RCTTypeSafety-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCharts\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNSVG-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNTVOSController-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-Core.common\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-CoreModules-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTAnimation-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTBlob-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTImage-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTLinking-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTNetwork-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTSettings-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTText-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsi-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsiexecutor-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsinspector-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Yoga-tvOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/glog-tvOS\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
