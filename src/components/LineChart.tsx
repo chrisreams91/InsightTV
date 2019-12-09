@@ -9,7 +9,6 @@ import {
   VictoryPie,
   VictoryAxis,
   VictoryLabel,
-  VictoryZoomVoronoiContainer,
   VictoryLine,
   createContainer,
 } from 'victory-native';
@@ -33,28 +32,28 @@ interface Props {}
 const LineChart: React.StatelessComponent<Props> = props => {
   const data: Data[][] = [
     [
-      { name: 'A', value: 1, date: 0.1 },
-      { name: 'A', value: 2, date: 0.2 },
-      { name: 'A', value: 3, date: 0.3 },
-      { name: 'A', value: 4, date: 0.4, label: 'A' },
+      { name: 'A', value: 1, date: 1 },
+      { name: 'A', value: 16, date: 2 },
+      { name: 'A', value: 18, date: 3 },
+      { name: 'A', value: 18, date: 4, label: 'A' },
     ],
     [
-      { name: 'B', value: 1, date: 0.2 },
-      { name: 'B', value: 2, date: 0.3 },
-      { name: 'B', value: 3, date: 0.4 },
-      { name: 'B', value: 4, date: 0.5, label: 'B' },
+      { name: 'B', value: 1, date: 1 },
+      { name: 'B', value: 16, date: 2 },
+      { name: 'B', value: 15, date: 3 },
+      { name: 'B', value: 20, date: 4, label: 'B' },
     ],
     [
-      { name: 'C', value: 1, date: 0.3 },
-      { name: 'C', value: 2, date: 0.4 },
-      { name: 'C', value: 3, date: 0.5 },
-      { name: 'C', value: 4, date: 0.6, label: 'C' },
+      { name: 'C', value: 3, date: 1 },
+      { name: 'C', value: 14, date: 2 },
+      { name: 'C', value: 18, date: 3 },
+      { name: 'C', value: 13, date: 4, label: 'C' },
     ],
     [
-      { name: 'D', value: 1, date: 0.4 },
-      { name: 'D', value: 2, date: 0.5 },
-      { name: 'D', value: 3, date: 0.6 },
-      { name: 'D', value: 4, date: 0.7, label: 'D' },
+      { name: 'D', value: 2, date: 1 },
+      { name: 'D', value: 12, date: 2 },
+      { name: 'D', value: 15, date: 3 },
+      { name: 'D', value: 14, date: 4, label: 'D' },
     ],
   ];
 
@@ -72,10 +71,10 @@ const LineChart: React.StatelessComponent<Props> = props => {
         right: 100,
       }}
       animate={{
-        duration: 2000,
-        onLoad: { duration: 1000 },
+        duration: 5000,
+        onLoad: { duration: 1500 },
       }}
-      domain={{ x: [1, 4], y: [0, 1] }}
+      width={600}
       containerComponent={
         <VictoryZoomVoronoiContainer />
         // include the line below in the container tag if you want to show tooltips at each point
@@ -84,7 +83,7 @@ const LineChart: React.StatelessComponent<Props> = props => {
       <VictoryAxis tickValues={[1, 2, 3, 4]} />
       <VictoryAxis
         dependentAxis
-        tickValues={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]}
+        tickValues={[10, 15, 20, 25]}
         tickFormat={t => `${t * 100}%`}
       />
       {data.map((dataArray, key) => {
@@ -98,8 +97,8 @@ const LineChart: React.StatelessComponent<Props> = props => {
               data: { stroke: colors[key], strokeWidth: 5 },
             }}
             data={dataArray}
-            x="value"
-            y="date"
+            x="date"
+            y="value"
             labels={d => d.label}
             labelComponent={<VictoryLabel dx={10} dy={15} renderInPortal />}
           />

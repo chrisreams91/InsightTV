@@ -32,7 +32,7 @@ const tabs: Tab[] = [
     key: 'test',
     name: 'test',
     value: (
-      <View style={{ height: 900, marginTop: 300 }}>
+      <View style={{ marginTop: 300 }}>
         <LineChart />
       </View>
     ),
