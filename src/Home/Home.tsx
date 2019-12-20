@@ -1,19 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import SingleStat from '../components/SingleStat';
 import TabButton from '../components/TabButton';
 import axios from 'axios';
 import { useInterval } from '../util';
+import LineChart from '../components/LineChart';
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: 'center' },
-  buttonContainer: {
-    flex: 1,
+  container: {},
+  filterContainer: {
     flexDirection: 'row',
     marginTop: 200,
-  },
-  singleStatsContainer: { flex: 1, flexDirection: 'row', margin: 10 },
-  singleStatsColumn: {
+    alignSelf: 'center',
     backgroundColor: 'red',
   },
   button: {
@@ -25,45 +23,96 @@ const styles = StyleSheet.create({
     fontSize: 40,
     textAlign: 'center',
   },
+  dataContainer: {
+    flexDirection: 'row',
+    marginTop: 150,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    backgroundColor: 'grey',
+  },
+  singleStatsContainer: {
+    flexDirection: 'row',
+    height: 400,
+    backgroundColor: 'orange',
+  },
+  singleStatsColumn: {},
 });
 
+interface Data {
+  name: string;
+  value: number;
+  date: number;
+  label?: string;
+}
+const lineData: Data[][] = [
+  [
+    { name: 'A', value: 1, date: 1 },
+    { name: 'A', value: 6, date: 2 },
+    { name: 'A', value: 18, date: 3 },
+    { name: 'A', value: 18, date: 4, label: 'A' },
+  ],
+  [
+    { name: 'B', value: 1, date: 1 },
+    { name: 'B', value: 16, date: 2 },
+    { name: 'B', value: 15, date: 3 },
+    { name: 'B', value: 24, date: 4, label: 'B' },
+  ],
+  [
+    { name: 'C', value: 3, date: 1 },
+    { name: 'C', value: 14, date: 2 },
+    { name: 'C', value: 18, date: 3 },
+    { name: 'C', value: 13, date: 4, label: 'C' },
+  ],
+  [
+    { name: 'D', value: 2, date: 1 },
+    { name: 'D', value: 12, date: 2 },
+    { name: 'D', value: 15, date: 3 },
+    { name: 'D', value: 14, date: 4, label: 'D' },
+  ],
+];
 const Home: React.StatelessComponent = () => {
-  const [data, setData] = useState({ name: '', value: '' });
-  const [dateRange, setDateRange] = useState(1);
+  const [data, setData] = useState(lineData);
 
-  const fetchData = async (id: number) => {
-    const { data } = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon-species/${id}`,
-    );
-    setData({ name: data.name, value: String(id) });
+  const fetchData = async () => {
+    // const { data } = await axios.get(
+    //   `https://pokeapi.co/api/v2/pokemon-species/${id}`,
+    // );
+  };
+
+  const filterData = (range: number) => {
+    const newData = data;
+    newData[3].map(point => (point.value = range));
+    setData(newData);
+    console.log(newData[3]);
   };
 
   // use interval should fetch the same data every time with no params
   // while datarange will be the trigger for filtering what current data is held
-
   useInterval(() => {
-    fetchData(dateRange);
-    console.log(dateRange);
-  }, 5000);
+    fetchData();
+  }, 25000);
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttonContainer}>
-        <TabButton onPress={() => setDateRange(1)} text="Day" />
-        <TabButton onPress={() => setDateRange(7)} text="Weekly" />
-        <TabButton onPress={() => setDateRange(30)} text="Month" />
+      <View style={styles.filterContainer}>
+        <TabButton onPress={() => filterData(1)} text="Day" />
+        <TabButton onPress={() => filterData(7)} text="Weekly" />
+        <TabButton onPress={() => filterData(30)} text="Month" />
       </View>
-      <View style={styles.singleStatsContainer}>
-        <View style={styles.singleStatsColumn}>
-          <SingleStat title={data.name} value={data.value} />
-          <SingleStat title="Stat 2" value={234000} />
-          <SingleStat title="Stat 3" value={3450} />
+      <View style={styles.dataContainer}>
+        <View style={styles.singleStatsContainer}>
+          <View style={styles.singleStatsColumn}>
+            <SingleStat title="stat 1" value={12345} />
+            <SingleStat title="Stat 2" value={234000} />
+            <SingleStat title="Stat 3" value={3450} />
+          </View>
+          <View style={styles.singleStatsColumn}>
+            <SingleStat title="Stat 4" value={122300} />
+            <SingleStat title="Stat 5" value={2000} />
+            <SingleStat title="Stat 6" value={34511220} />
+          </View>
         </View>
-        <View style={styles.singleStatsColumn}>
-          <SingleStat title="Stat 4" value={122300} />
-          <SingleStat title="Stat 5" value={2000} />
-          <SingleStat title="Stat 6" value={34511220} />
-        </View>
+        <LineChart height={600} width={600} data={data} />
       </View>
     </View>
   );
