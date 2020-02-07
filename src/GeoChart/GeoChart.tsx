@@ -1,5 +1,4 @@
-import React, { useState, useReducer } from 'react';
-import { Text } from 'react-native';
+import React, { useState } from 'react';
 import { Svg, G } from 'react-native-svg';
 import State from './State';
 import StateDimensions from './StateDimensions.json';
@@ -29,24 +28,19 @@ interface Data {
 const GeoChart: React.FunctionComponent = () => {
   const [data, setData] = useState<Data>(tempData);
   const [range, setRange] = useState<1 | 7 | 30>(1);
-  const [, forceUpdate] = useReducer(x => x + 1, 0);
 
   const fetchData = async (timeRange: number) => {
     const response = await axios.get(
       `http://localhost:8080/geochart/${timeRange}`,
     );
-    const updatedData = data;
+    const updatedData = { ...data };
     updatedData[range] = response.data;
     console.log('updated data: ', updatedData[1]);
     setData(updatedData);
   };
 
   useInterval(() => {
-    // await this?
     fetchData(1);
-
-    // hacky way to force re render ugh
-    forceUpdate(() => null);
   }, 5000);
 
   const fillStateColor = (count: number) => {
@@ -63,7 +57,6 @@ const GeoChart: React.FunctionComponent = () => {
   };
 
   const buildPaths = () => {
-    // ew
     const typedStateDimensions = StateDimensions as IStateDimensions;
 
     const stateKeys = Object.keys(StateDimensions);
@@ -77,12 +70,9 @@ const GeoChart: React.FunctionComponent = () => {
   };
 
   return (
-    <>
-      <Svg width="959" height="593">
-        <G>{buildPaths()}</G>
-      </Svg>
-      <Text>random s = {JSON.stringify(data[1])}</Text>
-    </>
+    <Svg width="959" height="593">
+      <G>{buildPaths()}</G>
+    </Svg>
   );
 };
 
