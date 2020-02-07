@@ -1,3 +1,4 @@
 Fix typescript error
 implement legend
+Figure out strategy to have color ranges be dynamic every get the lowest and highest number 
 
