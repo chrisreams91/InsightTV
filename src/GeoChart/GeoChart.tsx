@@ -6,6 +6,14 @@ import StateDimensions from './StateDimensions.json';
 import { useInterval } from '../util';
 import axios from 'axios';
 
+interface IStateDimensions {
+  [key: string]: {
+    dimensions: string;
+    abbreviation: string;
+    name: string;
+  };
+}
+
 const tempData = {
   1: { MO: 12, AL: 1, FL: 2 },
   7: { MO: 12, AL: 1, FL: 2 },
@@ -55,11 +63,14 @@ const GeoChart: React.FunctionComponent = () => {
   };
 
   const buildPaths = () => {
+    // ew
+    const typedStateDimensions = StateDimensions as IStateDimensions;
+
     const stateKeys = Object.keys(StateDimensions);
     return stateKeys.map(key => (
       <State
         key={key}
-        dimensions={StateDimensions[key].dimensions}
+        dimensions={typedStateDimensions[key].dimensions}
         fill={fillStateColor(data[range][key])}
       />
     ));
