@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SingleStat: React.StatelessComponent<Props> = props => {
+const SingleStat: React.FunctionComponent<Props> = props => {
   const { title, value } = props;
   return (
     <View style={styles.container}>

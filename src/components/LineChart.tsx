@@ -27,7 +27,7 @@ interface Props {
   data: Data[][];
 }
 
-const LineChart: React.StatelessComponent<Props> = props => {
+const LineChart: React.FunctionComponent<Props> = props => {
   const { height, width, data } = props;
   const colors = ['red', 'blue', 'purple', 'green'];
 

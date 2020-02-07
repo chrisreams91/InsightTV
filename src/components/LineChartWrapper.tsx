@@ -31,7 +31,7 @@ interface Props {}
 // prop reference
 // https://github.com/wuxudong/react-native-charts-wrapper/blob/master/lib/BarLineChartBase.js
 
-const LineChartWrapper: React.StatelessComponent<Props> = props => {
+const LineChartWrapper: React.FunctionComponent<Props> = props => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <View style={styles.container}>

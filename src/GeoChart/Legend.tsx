@@ -1,10 +1,7 @@
 import React from 'react';
-import { Path } from 'react-native-svg';
 import { View, Text } from 'react-native';
 
-interface Props {}
-
-const Legend: React.StatelessComponent<Props> = props => {
+const Legend: React.FunctionComponent = () => {
   return (
     <View>
       <Text>LEGEND PLACEHOLDER</Text>

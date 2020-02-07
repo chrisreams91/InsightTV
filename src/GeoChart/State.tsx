@@ -7,7 +7,7 @@ interface Props {
   fill: string;
 }
 
-const State: React.StatelessComponent<Props> = props => {
+const State: React.FunctionComponent<Props> = props => {
   const { dimensions, fill } = props;
   return <Path d={dimensions} fill={fill} />;
 };

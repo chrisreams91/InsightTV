@@ -18,7 +18,7 @@ interface Props {
   text: string;
 }
 
-const TabButton: React.StatelessComponent<Props> = props => {
+const TabButton: React.FunctionComponent<Props> = props => {
   const { onPress, text } = props;
   return (
     <TouchableHighlight

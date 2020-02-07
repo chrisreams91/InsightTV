@@ -1,1 +1,6 @@
-1: GEOCHART
+- Large window component for housing inner stat components
+- Componet for Day, Week and Month buttons
+- Flesh out component for stats
+- Pie chart component?
+- Line graph component?
+- Queries?

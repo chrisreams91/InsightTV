@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import SingleStat from '../components/SingleStat';
 import TabButton from '../components/TabButton';
@@ -70,7 +70,7 @@ const lineData: Data[][] = [
     { name: 'D', value: 14, date: 4, label: 'D' },
   ],
 ];
-const Home: React.StatelessComponent = () => {
+const Home: React.FunctionComponent = () => {
   const [data, setData] = useState(lineData);
 
   const fetchData = async () => {
@@ -83,7 +83,6 @@ const Home: React.StatelessComponent = () => {
     const newData = data;
     newData[3].map(point => (point.value = range));
     setData(newData);
-    console.log(newData[3]);
   };
 
   // use interval should fetch the same data every time with no params
