@@ -2,7 +2,6 @@ import React from 'react';
 import { Path } from 'react-native-svg';
 
 interface Props {
-  key: string;
   dimensions: string;
   fill: string;
 }
