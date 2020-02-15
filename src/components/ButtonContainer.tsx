@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import TabButton from './TabButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,11 +28,11 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-  buttons: typeof TabButton[];
-  children: JSX.Element;
+  buttons: JSX.Element[];
+  children: any;
 }
 
-const ButtonContainer: React.FunctionComponent<any> = props => {
+const ButtonContainer: React.FunctionComponent<Props> = props => {
   const { buttons, children } = props;
   return (
     <View style={styles.container}>

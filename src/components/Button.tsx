@@ -25,7 +25,7 @@ interface Props {
   color?: string;
 }
 
-const TabButton: React.FunctionComponent<Props> = props => {
+const Button: React.FunctionComponent<Props> = props => {
   const { onPress, text, color = '#abcae0' } = props;
   return (
     <TouchableHighlight
@@ -41,4 +41,4 @@ const TabButton: React.FunctionComponent<Props> = props => {
   );
 };
 
-export default TabButton;
+export default Button;

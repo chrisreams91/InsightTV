@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import SingleStat from '../components/SingleStat';
-import TabButton from '../components/TabButton';
+import Button from '../components/Button';
 import axios from 'axios';
 import { useInterval } from '../util';
 import LineChart from '../components/LineChart';
@@ -88,15 +88,16 @@ const Home: React.FunctionComponent = () => {
   // use interval should fetch the same data every time with no params
   // while datarange will be the trigger for filtering what current data is held
   useInterval(() => {
+    console.log('use interval');
     fetchData();
   }, 25000);
 
   return (
     <View style={styles.container}>
       <View style={styles.filterContainer}>
-        <TabButton onPress={() => filterData(1)} text="Day" />
-        <TabButton onPress={() => filterData(7)} text="Weekly" />
-        <TabButton onPress={() => filterData(30)} text="Month" />
+        <Button onPress={() => filterData(1)} text="Day" />
+        <Button onPress={() => filterData(7)} text="Weekly" />
+        <Button onPress={() => filterData(30)} text="Month" />
       </View>
       <View style={styles.dataContainer}>
         <View style={styles.singleStatsContainer}>
