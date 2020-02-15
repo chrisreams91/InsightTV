@@ -15,11 +15,7 @@ const tabs: Tab[] = [
   {
     key: 'GeoChart',
     name: 'GeoChart',
-    value: (
-      <View style={{ margin: 250 }}>
-        <GeoChart />
-      </View>
-    ),
+    value: <GeoChart />,
   },
 ];
 

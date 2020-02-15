@@ -6,7 +6,13 @@ const styles = StyleSheet.create({
     height: 80,
     width: 180,
     textAlign: 'center',
+    marginHorizontal: 25,
+    borderColor: 'black',
+    borderStyle: 'solid',
+    borderWidth: 3,
+    backgroundColor: '#5ba2cf',
   },
+  buttonTextContainer: { justifyContent: 'center', flex: 1 },
   buttonText: {
     fontSize: 40,
     textAlign: 'center',
@@ -16,18 +22,19 @@ const styles = StyleSheet.create({
 interface Props {
   onPress: () => void;
   text: string;
+  color?: string;
 }
 
 const TabButton: React.FunctionComponent<Props> = props => {
-  const { onPress, text } = props;
+  const { onPress, text, color = '#abcae0' } = props;
   return (
     <TouchableHighlight
       activeOpacity={1}
-      underlayColor="#abcae0"
+      underlayColor={color}
       onPress={onPress}
       style={styles.button}
     >
-      <View style={{ justifyContent: 'center', flex: 1 }}>
+      <View style={styles.buttonTextContainer}>
         <Text style={styles.buttonText}>{text}</Text>
       </View>
     </TouchableHighlight>
