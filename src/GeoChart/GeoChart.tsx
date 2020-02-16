@@ -35,7 +35,7 @@ interface Data {
   30: { [key: string]: number };
 }
 
-// temp test data
+// vv  temp test data  vv //
 const randomData = () => {
   const x: any = {};
   Object.keys(stateDimensions).forEach(key => {
@@ -49,7 +49,7 @@ const defaultData = {
   7: randomData(),
   30: randomData(),
 };
-//
+// ^^  temp test data  ^^ //
 
 const ONE_MINUTE = 60000;
 
@@ -97,13 +97,13 @@ const GeoChart: React.FunctionComponent = () => {
     250: '#0000cc',
   };
 
-  const fillStateColor = (count: number): any => {
-    const keys = Object.keys(colorRanges)
+  const fillStateColor = (count: number) => {
+    const colorRangeKeys = Object.keys(colorRanges)
       .map(Number)
       .filter(key => count >= key);
 
-    const key = last(keys) || 0;
-    return colorRanges[key];
+    const lastKey = last(colorRangeKeys) || 0;
+    return colorRanges[lastKey];
   };
 
   const x = <Button onPress={() => setRange(1)} text="Day" />;
@@ -125,14 +125,10 @@ const GeoChart: React.FunctionComponent = () => {
   return (
     <View style={styles.container}>
       <ButtonContainer buttons={[x, y, z]}>
-        <Svg width="959" height="593">
+        <Svg width="1200" height="800">
           <G>{buildMap()}</G>
         </Svg>
-        <Legend
-          title="GEOCHART LEGEND!"
-          colorDictionary={colorRanges}
-          style={styles.text}
-        />
+        <Legend legendKey={colorRanges} style={styles.text} />
       </ButtonContainer>
     </View>
   );

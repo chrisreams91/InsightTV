@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   box: {
     flex: 1,
-    margin: 50,
+    marginVertical: 50,
     borderColor: 'black',
     borderStyle: 'solid',
     borderWidth: 3,
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   childrenContainer: {
     flex: 1,
     flexDirection: 'row',
+    justifyContent: 'space-between',
     marginTop: 50,
     // borderColor: 'black',
     // borderStyle: 'solid',

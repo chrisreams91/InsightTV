@@ -2,20 +2,42 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 interface Props {
-  title: string;
-  colorDictionary: { [key: number]: string };
+  legendKey: { [key: number]: string };
+  title?: string;
   style?: {};
 }
 const styles = StyleSheet.create({
-  text: { fontSize: 50 },
+  container: {},
+  header: { fontSize: 60 },
+  legendRowContainer: { flexDirection: 'row' },
+  legendRowColorSwatch: { width: 100, height: 50 },
+  legendRowText: { fontSize: 40, marginLeft: 20 },
 });
 
 const Legend: React.FunctionComponent<Props> = ({
-  title,
+  title = '',
+  legendKey,
   style = {},
-}: Props) => (
-  <View>
-    <Text style={{ ...styles.text, ...style }}>{title}</Text>
-  </View>
-);
+}: Props) => {
+  const rows = Object.keys(legendKey)
+    .map(Number)
+    .map(key => (
+      <View style={styles.legendRowContainer}>
+        <View
+          style={{
+            ...styles.legendRowColorSwatch,
+            backgroundColor: legendKey[key],
+          }}
+        />
+        <Text style={styles.legendRowText}>{key}</Text>
+      </View>
+    ));
+
+  return (
+    <View>
+      <Text style={{ ...styles.header, ...style }}>{title}</Text>
+      <View>{rows}</View>
+    </View>
+  );
+};
 export default Legend;

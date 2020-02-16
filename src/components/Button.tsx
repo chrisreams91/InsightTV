@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 25,
     borderColor: 'black',
     borderStyle: 'solid',
+    borderRadius: 20,
     borderWidth: 3,
     backgroundColor: '#5ba2cf',
   },
