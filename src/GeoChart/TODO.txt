@@ -1,6 +1,6 @@
 
-Figure out strategy to have color ranges be dynamic every get the lowest and highest number 
+extract contruction of map into own component
 
-1, 7 ,30 day ranges
+Figure out strategy to have color ranges be dynamic every get the lowest and highest number 
 
 legend

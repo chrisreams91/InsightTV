@@ -4,7 +4,7 @@ import { View, StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'grey',
+    // backgroundColor: 'grey',
     marginHorizontal: 50,
     marginTop: 50,
   },
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   childrenContainer: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     marginTop: 50,
     // borderColor: 'black',
     // borderStyle: 'solid',

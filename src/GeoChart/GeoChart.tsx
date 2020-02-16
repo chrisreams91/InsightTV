@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import { Svg, G } from 'react-native-svg';
 import axios from 'axios';
 import { last } from 'lodash';
@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 100,
+  },
+  mapContainer: {
+    // marginLeft: 50,
+    backgroundColor: 'grey',
   },
   text: {
     fontSize: 50,
@@ -122,13 +126,23 @@ const GeoChart: React.FunctionComponent = () => {
     ));
   };
 
+  const { height, width } = Dimensions.get('screen');
+  const legendDescription = `The number of active drivers in each state \n over the past ${range} days`;
   return (
     <View style={styles.container}>
       <ButtonContainer buttons={[x, y, z]}>
-        <Svg width="1200" height="800">
+        <Svg
+          width={width / 1.5}
+          height={height / 1.4}
+          style={styles.mapContainer}
+        >
           <G>{buildMap()}</G>
         </Svg>
-        <Legend legendKey={colorRanges} style={styles.text} />
+        <Legend
+          title={legendDescription}
+          legendKey={colorRanges}
+          style={styles.text}
+        />
       </ButtonContainer>
     </View>
   );

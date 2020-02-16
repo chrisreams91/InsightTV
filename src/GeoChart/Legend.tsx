@@ -7,8 +7,8 @@ interface Props {
   style?: {};
 }
 const styles = StyleSheet.create({
-  container: {},
-  header: { fontSize: 60 },
+  container: { backgroundColor: 'teal', flex: 1 },
+  header: { fontSize: 20 },
   legendRowContainer: { flexDirection: 'row' },
   legendRowColorSwatch: { width: 100, height: 50 },
   legendRowText: { fontSize: 40, marginLeft: 20 },
@@ -34,7 +34,7 @@ const Legend: React.FunctionComponent<Props> = ({
     ));
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={{ ...styles.header, ...style }}>{title}</Text>
       <View>{rows}</View>
     </View>
