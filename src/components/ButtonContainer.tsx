@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'grey',
-    margin: 50,
+    marginHorizontal: 50,
+    marginTop: 50,
   },
   buttonContainer: {
     margin: -40,
@@ -20,7 +21,9 @@ const styles = StyleSheet.create({
     borderWidth: 3,
   },
   childrenContainer: {
-    margin: 50,
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 50,
     // borderColor: 'black',
     // borderStyle: 'solid',
     // borderWidth: 3,

@@ -1,10 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-const Legend: React.FunctionComponent = () => {
+interface Props {
+  title: string;
+  colorDictionary: { [key: number]: string };
+  style?: {};
+}
+const styles = StyleSheet.create({
+  text: { fontSize: 50 },
+});
+
+const Legend: React.FunctionComponent<Props> = props => {
+  const { title, style = {} } = props;
   return (
     <View>
-      <Text>LEGEND PLACEHOLDER</Text>
+      <Text style={{ ...styles.text, ...style }}>{title}</Text>
     </View>
   );
 };
