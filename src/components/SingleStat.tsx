@@ -39,18 +39,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const SingleStat: React.FunctionComponent<Props> = props => {
-  const { title, value } = props;
-  return (
-    <View style={styles.container}>
-      <View style={styles.textContainerLet}>
-        <Text style={styles.text}>{title}: </Text>
-      </View>
-      <View style={styles.textContainerRight}>
-        <Text style={styles.text}>{value}</Text>
-      </View>
+const SingleStat: React.FunctionComponent<Props> = ({
+  title,
+  value,
+}: Props) => (
+  <View style={styles.container}>
+    <View style={styles.textContainerLet}>
+      <Text style={styles.text}>{title}: </Text>
     </View>
-  );
-};
+    <View style={styles.textContainerRight}>
+      <Text style={styles.text}>{value}</Text>
+    </View>
+  </View>
+);
 
 export default SingleStat;

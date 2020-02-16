@@ -13,8 +13,10 @@ interface Props {
   defaultTabKey?: string;
 }
 
-export const TVTabBar: React.FunctionComponent<Props> = props => {
-  const { tabs, defaultTabKey } = props;
+export const TVTabBar: React.FunctionComponent<Props> = ({
+  tabs,
+  defaultTabKey,
+}: Props) => {
   const [selectedTabKey, setSelectedTabKey] = useState(
     defaultTabKey || tabs[0].key,
   );

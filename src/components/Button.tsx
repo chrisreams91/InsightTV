@@ -25,20 +25,21 @@ interface Props {
   color?: string;
 }
 
-const Button: React.FunctionComponent<Props> = props => {
-  const { onPress, text, color = '#abcae0' } = props;
-  return (
-    <TouchableHighlight
-      activeOpacity={1}
-      underlayColor={color}
-      onPress={onPress}
-      style={styles.button}
-    >
-      <View style={styles.buttonTextContainer}>
-        <Text style={styles.buttonText}>{text}</Text>
-      </View>
-    </TouchableHighlight>
-  );
-};
+const Button: React.FunctionComponent<Props> = ({
+  onPress,
+  text,
+  color = '#abcae0',
+}: Props) => (
+  <TouchableHighlight
+    activeOpacity={1}
+    underlayColor={color}
+    onPress={onPress}
+    style={styles.button}
+  >
+    <View style={styles.buttonTextContainer}>
+      <Text style={styles.buttonText}>{text}</Text>
+    </View>
+  </TouchableHighlight>
+);
 
 export default Button;

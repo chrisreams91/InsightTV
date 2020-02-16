@@ -6,9 +6,8 @@ interface Props {
   fill: string;
 }
 
-const State: React.FunctionComponent<Props> = props => {
-  const { dimensions, fill } = props;
-  return <Path d={dimensions} fill={fill} />;
-};
+const State: React.FunctionComponent<Props> = ({ dimensions, fill }: Props) => (
+  <Path d={dimensions} fill={fill} />
+);
 
 export default State;

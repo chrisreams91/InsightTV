@@ -27,8 +27,11 @@ interface Props {
   data: Data[][];
 }
 
-const LineChart: React.FunctionComponent<Props> = props => {
-  const { height, width, data } = props;
+const LineChart: React.FunctionComponent<Props> = ({
+  height,
+  width,
+  data,
+}: Props) => {
   const colors = ['red', 'blue', 'purple', 'green'];
 
   return (
@@ -47,24 +50,22 @@ const LineChart: React.FunctionComponent<Props> = props => {
       height={height}
       width={width}
     >
-      {data.map((dataArray, key) => {
-        return (
-          <VictoryLine
-            key={`line_${Math.random()
-              .toString(36)
-              .substr(2)}`}
-            name={`line_${key}`}
-            style={{
-              data: { stroke: colors[key], strokeWidth: 5 },
-            }}
-            data={dataArray}
-            x="date"
-            y="value"
-            labels={d => d.label}
-            labelComponent={<VictoryLabel dx={10} dy={15} renderInPortal />}
-          />
-        );
-      })}
+      {data.map((dataArray, key) => (
+        <VictoryLine
+          key={`line_${Math.random()
+            .toString(36)
+            .substr(2)}`}
+          name={`line_${key}`}
+          style={{
+            data: { stroke: colors[key], strokeWidth: 5 },
+          }}
+          data={dataArray}
+          x="date"
+          y="value"
+          labels={d => d.label}
+          labelComponent={<VictoryLabel dx={10} dy={15} renderInPortal />}
+        />
+      ))}
     </VictoryChart>
   );
 };

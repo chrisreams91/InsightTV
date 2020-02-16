@@ -10,12 +10,12 @@ const styles = StyleSheet.create({
   text: { fontSize: 50 },
 });
 
-const Legend: React.FunctionComponent<Props> = props => {
-  const { title, style = {} } = props;
-  return (
-    <View>
-      <Text style={{ ...styles.text, ...style }}>{title}</Text>
-    </View>
-  );
-};
+const Legend: React.FunctionComponent<Props> = ({
+  title,
+  style = {},
+}: Props) => (
+  <View>
+    <Text style={{ ...styles.text, ...style }}>{title}</Text>
+  </View>
+);
 export default Legend;

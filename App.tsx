@@ -1,10 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
 
-import TVTabBar from './src/TVTabBar';
+import TVTabBar, { Tab } from './src/components/TVTabBar';
 import Home from './src/Home/Home';
 import GeoChart from './src/GeoChart/GeoChart';
-import { Tab } from './src/TVTabBar';
 
 const tabs: Tab[] = [
   {

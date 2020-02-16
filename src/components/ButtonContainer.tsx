@@ -35,16 +35,16 @@ interface Props {
   children: any;
 }
 
-const ButtonContainer: React.FunctionComponent<Props> = props => {
-  const { buttons, children } = props;
-  return (
-    <View style={styles.container}>
-      <View style={styles.box}>
-        <View style={styles.buttonContainer}>{buttons}</View>
-        <View style={styles.childrenContainer}>{children}</View>
-      </View>
+const ButtonContainer: React.FunctionComponent<Props> = ({
+  buttons,
+  children,
+}: Props) => (
+  <View style={styles.container}>
+    <View style={styles.box}>
+      <View style={styles.buttonContainer}>{buttons}</View>
+      <View style={styles.childrenContainer}>{children}</View>
     </View>
-  );
-};
+  </View>
+);
 
 export default ButtonContainer;
