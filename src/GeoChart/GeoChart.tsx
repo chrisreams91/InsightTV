@@ -126,16 +126,12 @@ const GeoChart: React.FunctionComponent = () => {
     ));
   };
 
-  const { height, width } = Dimensions.get('screen');
+  // const { height, width } = Dimensions.get('screen');
   const legendDescription = `The number of active drivers in each state \n over the past ${range} days`;
   return (
     <View style={styles.container}>
       <ButtonContainer buttons={[x, y, z]}>
-        <Svg
-          width={width / 1.5}
-          height={height / 1.4}
-          style={styles.mapContainer}
-        >
+        <Svg width="1300" height="775" style={styles.mapContainer}>
           <G>{buildMap()}</G>
         </Svg>
         <Legend
