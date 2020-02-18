@@ -7,10 +7,11 @@ interface Props {
   style?: {};
 }
 const styles = StyleSheet.create({
-  container: { backgroundColor: 'teal', flex: 1 },
-  header: { fontSize: 20 },
-  legendRowContainer: { flexDirection: 'row' },
-  legendRowColorSwatch: { width: 100, height: 50 },
+  container: { flex: 1, marginLeft: 30 },
+  header: { fontSize: 40, marginTop: 50, height: 150 },
+  legendRowContainer: { alignSelf: 'center' },
+  legendRow: { flexDirection: 'row' },
+  legendRowColorSwatch: { width: 120, height: 50 },
   legendRowText: { fontSize: 40, marginLeft: 20 },
 });
 
@@ -19,10 +20,10 @@ const Legend: React.FunctionComponent<Props> = ({
   legendKey,
   style = {},
 }: Props) => {
-  const rows = Object.keys(legendKey)
+  const legendRows = Object.keys(legendKey)
     .map(Number)
     .map(key => (
-      <View style={styles.legendRowContainer}>
+      <View style={styles.legendRow}>
         <View
           style={{
             ...styles.legendRowColorSwatch,
@@ -35,8 +36,8 @@ const Legend: React.FunctionComponent<Props> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={{ ...styles.header, ...style }}>{title}</Text>
-      <View>{rows}</View>
+      <Text style={{ ...style, ...styles.header }}>{title}</Text>
+      <View style={styles.legendRowContainer}>{legendRows}</View>
     </View>
   );
 };

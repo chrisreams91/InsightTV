@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { Svg, G } from 'react-native-svg';
 import axios from 'axios';
 import { last } from 'lodash';
+import moment from 'moment';
 
 import State from './State';
 import Legend from './Legend';
 import stateDimensions from './StateDimensions.json';
-import { useInterval } from '../util';
 import ButtonContainer from '../components/ButtonContainer';
 import Button from '../components/Button';
+import { useInterval } from '../util';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,8 +19,9 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     // marginLeft: 50,
-    backgroundColor: 'grey',
+    // backgroundColor: 'grey',
   },
+  lastUpdatedText: { fontSize: 30, alignSelf: 'center' },
   text: {
     fontSize: 50,
   },
@@ -60,9 +62,10 @@ const ONE_MINUTE = 60000;
 const GeoChart: React.FunctionComponent = () => {
   const [data, setData] = useState<Data>(defaultData);
   const [range, setRange] = useState<1 | 7 | 30>(1);
+  const [lastUpdated, setLastUpdated] = useState('No data yet.');
 
   const fetchData = (timeRange: number) => {
-    console.log(`fetching data with range ${range}`);
+    console.log(`fetching data with range ${timeRange}`);
     axios
       .get(`http://localhost:8080/geochart/${timeRange}`)
       .then(response => {
@@ -77,7 +80,9 @@ const GeoChart: React.FunctionComponent = () => {
   };
 
   useInterval(() => {
-    fetchData(range);
+    fetchData(1);
+    const timestamp = moment().format('h:mm:ss a');
+    setLastUpdated(`Last updated: ${timestamp}`);
   }, ONE_MINUTE * 10);
 
   useInterval(() => {
@@ -126,19 +131,26 @@ const GeoChart: React.FunctionComponent = () => {
     ));
   };
 
-  // const { height, width } = Dimensions.get('screen');
-  const legendDescription = `The number of active drivers in each state \n over the past ${range} days`;
+  const daily = 'so far today';
+  const weeklyMonthly = `over the past ${range} days`;
+  const legendDescription = `The number of active drivers in each state ${
+    range === 1 ? daily : weeklyMonthly
+  }`;
+
   return (
     <View style={styles.container}>
       <ButtonContainer buttons={[x, y, z]}>
-        <Svg width="1300" height="775" style={styles.mapContainer}>
+        <Svg width="1200" height="775" style={styles.mapContainer}>
           <G>{buildMap()}</G>
         </Svg>
-        <Legend
-          title={legendDescription}
-          legendKey={colorRanges}
-          style={styles.text}
-        />
+        <View style={{ flex: 1 }}>
+          <Text style={styles.lastUpdatedText}>{lastUpdated}</Text>
+          <Legend
+            title={legendDescription}
+            legendKey={colorRanges}
+            style={styles.text}
+          />
+        </View>
       </ButtonContainer>
     </View>
   );

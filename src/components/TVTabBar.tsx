@@ -28,7 +28,11 @@ export const TVTabBar: React.FunctionComponent<Props> = ({
   };
 
   return (
-    <TabBarIOS unselectedTintColor="red" tintColor="red" barTintColor="#00a1e0">
+    <TabBarIOS
+      unselectedTintColor="black"
+      tintColor="white"
+      barTintColor="#bec2bf"
+    >
       {tabs.map(tab => (
         <TabBarIOS.Item
           key={tab.key}

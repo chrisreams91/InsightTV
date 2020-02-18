@@ -7,7 +7,7 @@ interface Props {
 }
 
 const State: React.FunctionComponent<Props> = ({ dimensions, fill }: Props) => (
-  <Path d={dimensions} fill={fill} scale={1.3} />
+  <Path d={dimensions} fill={fill} scale={1.28} />
 );
 
 export default State;

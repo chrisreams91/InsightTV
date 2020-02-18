@@ -88,8 +88,8 @@ const Home: React.FunctionComponent = () => {
   // use interval should fetch the same data every time with no params
   // while datarange will be the trigger for filtering what current data is held
   useInterval(() => {
-    console.log('use interval');
-    fetchData();
+    // console.log('use interval');
+    // fetchData();
   }, 25000);
 
   return (
