@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { Svg, G } from 'react-native-svg';
 import axios from 'axios';
-import { last } from 'lodash';
 import moment from 'moment';
 import Config from 'react-native-config';
 
-import State from './State';
 import Legend from './Legend';
+import UnitedStatesMap from './UnitedStatesMap';
 import stateDimensions from './StateDimensions.json';
 import ButtonContainer from '../components/ButtonContainer';
 import Button from '../components/Button';
@@ -31,15 +29,7 @@ const styles = StyleSheet.create({
   },
 });
 
-interface StateDimensions {
-  [key: string]: {
-    dimensions: string;
-    abbreviation: string;
-    name: string;
-  };
-}
-
-interface Data {
+export interface Data {
   1: { [key: string]: number };
   7: { [key: string]: number };
   30: { [key: string]: number };
@@ -110,30 +100,9 @@ const GeoChart: React.FunctionComponent = () => {
     250: '#0000cc',
   };
 
-  const fillStateColor = (count: number) => {
-    const colorRangeKeys = Object.keys(colorRanges)
-      .map(Number)
-      .filter(key => count >= key);
-
-    const lastKey = last(colorRangeKeys) || 0;
-    return colorRanges[lastKey];
-  };
-
   const day = <Button onPress={() => setRange(1)} text="Day" />;
   const week = <Button onPress={() => setRange(7)} text="Week" />;
   const month = <Button onPress={() => setRange(30)} text="Month" />;
-
-  const buildMap = () => {
-    const typedStateDimensions = stateDimensions as StateDimensions;
-    const stateKeys = Object.keys(stateDimensions);
-    return stateKeys.map(key => (
-      <State
-        key={key}
-        dimensions={typedStateDimensions[key].dimensions}
-        fill={fillStateColor(data[range][key])}
-      />
-    ));
-  };
 
   const daily = 'so far today';
   const weeklyMonthly = `over the past ${range} days`;
@@ -144,9 +113,7 @@ const GeoChart: React.FunctionComponent = () => {
   return (
     <View style={styles.container}>
       <ButtonContainer buttons={[day, week, month]}>
-        <Svg width="1200" height="775" style={styles.mapContainer}>
-          <G>{buildMap()}</G>
-        </Svg>
+        <UnitedStatesMap colorRanges={colorRanges} range={range} data={data} />
         <View style={styles.legendContainer}>
           <Text style={styles.lastUpdatedText}>
             Last updated: {lastUpdated}
