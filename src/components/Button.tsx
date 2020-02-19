@@ -29,7 +29,7 @@ interface Props {
 const Button: React.FunctionComponent<Props> = ({
   onPress,
   text,
-  color = '#abcae0',
+  color = '#edf6fc',
 }: Props) => (
   <TouchableHighlight
     activeOpacity={1}

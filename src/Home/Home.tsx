@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import SingleStat from '../components/SingleStat';
 import Button from '../components/Button';
-import axios from 'axios';
-import { useInterval } from '../util';
+// import axios from 'axios';
+// import { useInterval } from '../util';
 import LineChart from '../components/LineChart';
 
 const styles = StyleSheet.create({
@@ -73,11 +73,11 @@ const lineData: Data[][] = [
 const Home: React.FunctionComponent = () => {
   const [data, setData] = useState(lineData);
 
-  const fetchData = async () => {
-    // const { data } = await axios.get(
-    //   `https://pokeapi.co/api/v2/pokemon-species/${id}`,
-    // );
-  };
+  // const fetchData = async () => {
+  // const { data } = await axios.get(
+  //   `https://pokeapi.co/api/v2/pokemon-species/${id}`,
+  // );
+  // };
 
   const filterData = (range: number) => {
     const newData = data;
@@ -87,10 +87,10 @@ const Home: React.FunctionComponent = () => {
 
   // use interval should fetch the same data every time with no params
   // while datarange will be the trigger for filtering what current data is held
-  useInterval(() => {
-    // console.log('use interval');
-    // fetchData();
-  }, 25000);
+  // useInterval(() => {
+  // console.log('use interval');
+  // fetchData();
+  // }, 25000);
 
   return (
     <View style={styles.container}>

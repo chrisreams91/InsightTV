@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     // marginLeft: 50,
     // backgroundColor: 'grey',
   },
+  legendContainer: {
+    flex: 1,
+  },
   lastUpdatedText: { fontSize: 30, alignSelf: 'center' },
   text: {
     fontSize: 50,
@@ -64,7 +67,7 @@ const GeoChart: React.FunctionComponent = () => {
   const [data, setData] = useState<Data>(defaultData);
   const [range, setRange] = useState<1 | 7 | 30>(1);
   const [lastUpdated, setLastUpdated] = useState('No data yet.');
-  console.log(Config);
+
   const fetchData = (timeRange: number) => {
     console.log(`fetching data with range ${timeRange}`);
     axios
@@ -94,7 +97,7 @@ const GeoChart: React.FunctionComponent = () => {
     fetchData(30);
   }, ONE_MINUTE * 60 * 24);
 
-  const colorRanges = {
+  const colorRanges: { [index: number]: string } = {
     0: '#e6e6ff',
     1: '#ccccff',
     5: '#b3b3ff',
@@ -116,9 +119,9 @@ const GeoChart: React.FunctionComponent = () => {
     return colorRanges[lastKey];
   };
 
-  const x = <Button onPress={() => setRange(1)} text="Day" />;
-  const y = <Button onPress={() => setRange(7)} text="Week" />;
-  const z = <Button onPress={() => setRange(30)} text="Month" />;
+  const day = <Button onPress={() => setRange(1)} text="Day" />;
+  const week = <Button onPress={() => setRange(7)} text="Week" />;
+  const month = <Button onPress={() => setRange(30)} text="Month" />;
 
   const buildMap = () => {
     const typedStateDimensions = stateDimensions as StateDimensions;
@@ -140,12 +143,14 @@ const GeoChart: React.FunctionComponent = () => {
 
   return (
     <View style={styles.container}>
-      <ButtonContainer buttons={[x, y, z]}>
+      <ButtonContainer buttons={[day, week, month]}>
         <Svg width="1200" height="775" style={styles.mapContainer}>
           <G>{buildMap()}</G>
         </Svg>
-        <View style={{ flex: 1 }}>
-          <Text style={styles.lastUpdatedText}>{lastUpdated}</Text>
+        <View style={styles.legendContainer}>
+          <Text style={styles.lastUpdatedText}>
+            Last updated: {lastUpdated}
+          </Text>
           <Legend
             title={legendDescription}
             legendKey={colorRanges}
