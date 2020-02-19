@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios  --simulator 'Apple TV 4K' --scheme 'InsightTV-tvOS'",
+    "ios": "react-native run-ios  --simulator 'Apple TV 4K' --scheme 'dev' --configuration=Debug",
+    "ios-prod": "react-native run-ios  --simulator 'Apple TV 4K' --scheme 'prod' --configuration=Release",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
@@ -16,6 +17,7 @@
     "react": "16.9.0",
     "react-native": "npm:react-native-tvos@0.61.2-0",
     "react-native-charts-wrapper": "^0.5.7",
+    "react-native-config": "^0.12.0",
     "react-native-svg": "^7.2.1",
     "react-native-tvos-controller": "https://github.com/dlowder-salesforce/react-native-tvos-controller#master",
     "victory-native": "32.0.2"

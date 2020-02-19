@@ -5432,6 +5432,11 @@ react-native-charts-wrapper@^0.5.7:
     prop-types "^15.5.10"
     react "16.8.3"
 
+react-native-config@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.12.0.tgz#910e52226b60e0c9f2b648772eea2a93f8701751"
+  integrity sha512-lC8QOZCGCXgFh74uWSVGMaChg+Qf2BScWzVd9C4yrFnfxrHSFyIekqOOq/sjE8Uu2ifgxZmSiK1Z8EEi78AmQA==
+
 react-native-svg@^7.2.1:
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-7.2.1.tgz#aaa0cd2aa1c9f13b6d60984456b363d6dbfde445"

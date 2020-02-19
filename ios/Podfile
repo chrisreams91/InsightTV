@@ -36,6 +36,8 @@ target 'InsightTV' do
 
   use_native_modules!
 
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
 end
 
 target 'InsightTV-tvOS' do
@@ -75,6 +77,8 @@ target 'InsightTV-tvOS' do
   pod 'RNCharts', :path => '../node_modules/react-native-charts-wrapper'
   pod 'SwiftyJSON', '5.0'      
   pod 'Charts', '3.3.0' 
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
   
 end
 

@@ -4,6 +4,7 @@ import { Svg, G } from 'react-native-svg';
 import axios from 'axios';
 import { last } from 'lodash';
 import moment from 'moment';
+import Config from 'react-native-config';
 
 import State from './State';
 import Legend from './Legend';
@@ -63,11 +64,11 @@ const GeoChart: React.FunctionComponent = () => {
   const [data, setData] = useState<Data>(defaultData);
   const [range, setRange] = useState<1 | 7 | 30>(1);
   const [lastUpdated, setLastUpdated] = useState('No data yet.');
-
+  console.log(Config);
   const fetchData = (timeRange: number) => {
     console.log(`fetching data with range ${timeRange}`);
     axios
-      .get(`http://localhost:8080/geochart/${timeRange}`)
+      .get(`${Config.API_URL}/${timeRange}`)
       .then(response => {
         const updatedData = { ...data };
         updatedData[range] = response.data;

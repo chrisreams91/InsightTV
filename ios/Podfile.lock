@@ -183,6 +183,8 @@ PODS:
     - React-cxxreact (= 0.61.2-0)
     - React-jsi (= 0.61.2-0)
   - React-jsinspector (0.61.2-0)
+  - react-native-config (0.12.0):
+    - React
   - React-RCTActionSheet (0.61.2-0):
     - React-Core/RCTActionSheetHeaders (= 0.61.2-0)
   - React-RCTAnimation (0.61.2-0):
@@ -218,10 +220,6 @@ PODS:
     - React-cxxreact (= 0.61.2-0)
     - React-jsi (= 0.61.2-0)
     - ReactCommon/jscallinvoker (= 0.61.2-0)
-  - RNCharts (0.5.7):
-    - Charts (= 3.3.0)
-    - React
-    - SwiftyJSON (= 5.0)
   - RNSVG (7.2.1):
     - React
   - RNTVOSController (0.2.2):
@@ -250,6 +248,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-config (from `../node_modules/react-native-config`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -261,14 +260,13 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
-  - RNCharts (from `../node_modules/react-native-charts-wrapper`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNTVOSController (from `../node_modules/react-native-tvos-controller`)
   - SwiftyJSON (= 5.0)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - boost-for-react-native
     - Charts
     - SwiftyJSON
@@ -302,6 +300,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-config:
+    :path: "../node_modules/react-native-config"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -322,8 +322,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
-  RNCharts:
-    :path: "../node_modules/react-native-charts-wrapper"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNTVOSController:
@@ -348,6 +346,7 @@ SPEC CHECKSUMS:
   React-jsi: b51167c1dd1e23df03a85d804dc5dae9cd85ca81
   React-jsiexecutor: 473fbede520970de17d0c467bf1b956b7a89611f
   React-jsinspector: 40c140c231bb681bd907ab9225f96b39b690f2b9
+  react-native-config: f2c2ae45625a068c35681a16b9bfb1ca58b0adc7
   React-RCTActionSheet: 5ee63db28e6b2ffdde516783bfae45546f7df251
   React-RCTAnimation: 6592bb5dbbf23fc3472d880417b9097bbc58ac0a
   React-RCTBlob: e59603474af13b7b38273286e73b97d313c7921c
@@ -358,12 +357,11 @@ SPEC CHECKSUMS:
   React-RCTText: 581e1033b3a843dde73dbb270105f6f3d471f159
   React-RCTVibration: c3f47e4259e1ee8de8c18289b899926747819487
   ReactCommon: 50d24b6b7926edf43d8e847f246364926a7b739a
-  RNCharts: e7b34e6429da8d86fe606bdbdcf6e85c2bc3607a
   RNSVG: 6c8e8c6f9e5a0caf910dd25aa6e4216045426e1d
   RNTVOSController: 1466c2ed9416dbff59800ae33f839f605383c2de
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Yoga: 1499aded49ba2086581fc4ac1c8fb4b82bef9789
 
-PODFILE CHECKSUM: 844173bba283fe0bc3628d46d34f4765a4a171db
+PODFILE CHECKSUM: 847f8074b7ed52a113e927cc6507193134f9bbb7
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.8.4
