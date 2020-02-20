@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09DD5AB2431F1F2547056BC1 /* libPods-InsightTV-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C775BE48D4E0F945F707023B /* libPods-InsightTV-tvOS.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -17,6 +16,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		56439441239E140A00C55FC8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56439440239E140A00C55FC8 /* File.swift */; };
 		D247F207BDA269275D18422D /* libPods-InsightTV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2712CE4B96232508C08785C8 /* libPods-InsightTV.a */; };
+		F75B0E5B85160C6A78A62773 /* Pods_InsightTV_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3D6E1526303AC7BA70AF94 /* Pods_InsightTV_tvOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 		56439440239E140A00C55FC8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		952D61B5855552E727412DB5 /* Pods-InsightTV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsightTV.release.xcconfig"; path = "Target Support Files/Pods-InsightTV/Pods-InsightTV.release.xcconfig"; sourceTree = "<group>"; };
 		AAA745AC4339B63E37C1E93A /* Pods-InsightTV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsightTV.debug.xcconfig"; path = "Target Support Files/Pods-InsightTV/Pods-InsightTV.debug.xcconfig"; sourceTree = "<group>"; };
-		C775BE48D4E0F945F707023B /* libPods-InsightTV-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InsightTV-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA3D6E1526303AC7BA70AF94 /* Pods_InsightTV_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InsightTV_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10773BB30A403F459395735 /* libPods-InsightTVTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InsightTVTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D82C38FF6FF72CD17063AB3F /* Pods-InsightTVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsightTVTests.release.xcconfig"; path = "Target Support Files/Pods-InsightTVTests/Pods-InsightTVTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09DD5AB2431F1F2547056BC1 /* libPods-InsightTV-tvOS.a in Frameworks */,
+				F75B0E5B85160C6A78A62773 /* Pods_InsightTV_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,8 +103,8 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2712CE4B96232508C08785C8 /* libPods-InsightTV.a */,
-				C775BE48D4E0F945F707023B /* libPods-InsightTV-tvOS.a */,
 				D10773BB30A403F459395735 /* libPods-InsightTVTests.a */,
+				CA3D6E1526303AC7BA70AF94 /* Pods_InsightTV_tvOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,6 +188,7 @@
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
 				2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */,
+				419C1D092DAE64D42A2A1C96 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -327,6 +328,76 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		419C1D092DAE64D42A2A1C96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InsightTV-tvOS/Pods-InsightTV-tvOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DoubleConversion-framework/DoubleConversion.framework",
+				"${BUILT_PRODUCTS_DIR}/FBReactNativeSpec-framework/FBReactNativeSpec.framework",
+				"${BUILT_PRODUCTS_DIR}/Folly-framework/folly.framework",
+				"${BUILT_PRODUCTS_DIR}/RCTTypeSafety-framework/RCTTypeSafety.framework",
+				"${BUILT_PRODUCTS_DIR}/RNSVG-framework/RNSVG.framework",
+				"${BUILT_PRODUCTS_DIR}/RNTVOSController-framework/RNTVOSController.framework",
+				"${BUILT_PRODUCTS_DIR}/React-Core.common/React.framework",
+				"${BUILT_PRODUCTS_DIR}/React-CoreModules-framework/CoreModules.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTAnimation-framework/RCTAnimation.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTBlob-framework/RCTBlob.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTImage-framework/RCTImage.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTLinking-framework/RCTLinking.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTNetwork-framework/RCTNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTSettings-framework/RCTSettings.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTText-framework/RCTText.framework",
+				"${BUILT_PRODUCTS_DIR}/React-cxxreact-framework/cxxreact.framework",
+				"${BUILT_PRODUCTS_DIR}/React-jsi-framework/jsi.framework",
+				"${BUILT_PRODUCTS_DIR}/React-jsiexecutor-framework/jsireact.framework",
+				"${BUILT_PRODUCTS_DIR}/React-jsinspector-framework/jsinspector.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactCommon-framework/ReactCommon.framework",
+				"${BUILT_PRODUCTS_DIR}/Yoga-framework/yoga.framework",
+				"${BUILT_PRODUCTS_DIR}/glog-framework/glog.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios-framework/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-react-native-framework/lottie_react_native.framework",
+				"${BUILT_PRODUCTS_DIR}/react-native-config-framework/react_native_config.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBReactNativeSpec.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTTypeSafety.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNSVG.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNTVOSController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreModules.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTAnimation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTBlob.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTLinking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTSettings.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTText.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/cxxreact.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/jsi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/jsireact.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/jsinspector.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactCommon.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/lottie_react_native.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_config.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InsightTV-tvOS/Pods-InsightTV-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {

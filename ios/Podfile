@@ -38,10 +38,16 @@ target 'InsightTV' do
 
   pod 'react-native-config', :path => '../node_modules/react-native-config'
 
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
+
 end
 
 target 'InsightTV-tvOS' do
   platform :tvos, '12.0'
+  use_frameworks!
+
   # Pods for InsightTV
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
@@ -72,13 +78,18 @@ target 'InsightTV-tvOS' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  use_native_modules!
+
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
   pod 'RNTVOSController', :path => '../node_modules/react-native-tvos-controller'
-  pod 'RNCharts', :path => '../node_modules/react-native-charts-wrapper'
   pod 'SwiftyJSON', '5.0'      
   pod 'Charts', '3.3.0' 
   pod 'react-native-config', :path => '../node_modules/react-native-config'
 
-  
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
+
+ 
 end
 

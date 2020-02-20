@@ -22,6 +22,10 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - lottie-ios (3.0.3)
+  - lottie-react-native (3.0.2):
+    - lottie-ios (~> 3.0.3)
+    - React
   - RCTRequired (0.61.2-0)
   - RCTTypeSafety (0.61.2-0):
     - FBLazyVector (= 0.61.2-0)
@@ -237,6 +241,8 @@ DEPENDENCIES:
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - lottie-ios (from `../node_modules/lottie-ios`)
+  - lottie-react-native (from `../node_modules/lottie-react-native`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
   - React (from `../node_modules/react-native/`)
@@ -282,6 +288,10 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  lottie-ios:
+    :path: "../node_modules/lottie-ios"
+  lottie-react-native:
+    :path: "../node_modules/lottie-react-native"
   RCTRequired:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
@@ -337,6 +347,8 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 41785c308609d531862e6f84277bc0d351ac1ca5
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  lottie-ios: 6037add6441183d4ffd100d2ac78724aa8d919d4
+  lottie-react-native: 838c5cf0fa7ae69a25a07c2d47b87f19048e6096
   RCTRequired: 1856312a2c7a95ea87f70bd4a5b2283f0144c54c
   RCTTypeSafety: 970d65d7d2436705baf9cf7ff3c85a3c500c4630
   React: 84e147846512eea33f69f59dba1ce9106564b7b9
@@ -362,6 +374,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Yoga: 1499aded49ba2086581fc4ac1c8fb4b82bef9789
 
-PODFILE CHECKSUM: 847f8074b7ed52a113e927cc6507193134f9bbb7
+PODFILE CHECKSUM: 2ed7c8ae93e034dc87699170028dd36599182a4a
 
 COCOAPODS: 1.8.4
