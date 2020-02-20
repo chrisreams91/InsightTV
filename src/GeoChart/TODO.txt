@@ -1,7 +1,8 @@
-fetch data only once on start
+legend polished
 
+last updated polished
+
+Understand what hook linter is barking at on useEffect / use callbacl
 
 Figure out strategy to have color ranges be dynamic every get the lowest and highest number 
 
-
-legend

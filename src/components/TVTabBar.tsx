@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { TabBarIOS } from 'react-native';
 
 export interface Tab {

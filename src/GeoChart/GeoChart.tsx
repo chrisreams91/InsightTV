@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import axios from 'axios';
 import moment from 'moment';
@@ -23,11 +23,10 @@ const styles = StyleSheet.create({
   },
   legendContainer: {
     flex: 1,
+    justifyContent: 'space-between',
+    // backgroundColor: 'blue',
   },
   lastUpdatedText: { fontSize: 30, alignSelf: 'center' },
-  text: {
-    fontSize: 50,
-  },
 });
 
 export interface Data {
@@ -60,6 +59,12 @@ const GeoChart: React.FunctionComponent = () => {
   const [lastUpdated, setLastUpdated] = useState('No data yet.');
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    console.log('comp did mount');
+    fetchData(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const fetchData = (timeRange: number) => {
     console.log(`fetching data with range ${timeRange}`);
     setLoading(true);
@@ -81,8 +86,8 @@ const GeoChart: React.FunctionComponent = () => {
   useInterval(() => {
     fetchData(1);
     const timestamp = moment().format('h:mm:ss a');
-    setLastUpdated(`Last updated: ${timestamp}`);
-  }, ONE_MINUTE * 10);
+    setLastUpdated(timestamp);
+  }, ONE_MINUTE * 15);
 
   useInterval(() => {
     fetchData(7);
@@ -121,11 +126,7 @@ const GeoChart: React.FunctionComponent = () => {
         <UnitedStatesMap colorRanges={colorRanges} range={range} data={data} />
         <View style={styles.legendContainer}>
           <UpdatedStatus lastUpdated={lastUpdated} loading={loading} />
-          <Legend
-            title={legendDescription}
-            legendKey={colorRanges}
-            style={styles.text}
-          />
+          <Legend title={legendDescription} legendKey={colorRanges} />
         </View>
       </ButtonContainer>
     </View>

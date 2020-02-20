@@ -7,8 +7,12 @@ interface Props {
   style?: {};
 }
 const styles = StyleSheet.create({
-  container: { flex: 1, marginLeft: 30, backgroundColor: 'red' },
-  header: { fontSize: 30, marginBottom: 20 },
+  container: {
+    flexDirection: 'row',
+    margin: 30,
+    // backgroundColor: 'red',
+  },
+  header: { fontSize: 30, marginBottom: 20, flex: 1, alignSelf: 'flex-end' },
   legendRowContainer: { alignSelf: 'center' },
   legendRow: { flexDirection: 'row' },
   legendRowColorSwatch: { width: 120, height: 40 },

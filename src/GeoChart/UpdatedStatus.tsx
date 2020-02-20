@@ -6,15 +6,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 0.5,
     alignSelf: 'center',
-    backgroundColor: 'gray',
+    // backgroundColor: 'gray',
   },
   text: {
-    fontSize: 30,
-    marginBottom: 20,
+    fontSize: 35,
+    marginBottom: 50,
   },
   animation: {
     width: 200,
     height: 200,
+    alignSelf: 'center',
   },
 });
 
@@ -31,7 +32,7 @@ const UpdatedStatus: React.FunctionComponent<Props> = ({
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{text}</Text>
-      {loading && (
+      {true && (
         <LottieView
           source={require('../animations/truck.json')}
           autoPlay

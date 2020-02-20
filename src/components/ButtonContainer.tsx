@@ -4,7 +4,6 @@ import { View, StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: 'grey',
     marginHorizontal: 50,
     marginTop: 50,
   },
@@ -19,15 +18,12 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderStyle: 'solid',
     borderWidth: 3,
+    borderRadius: 20,
   },
   childrenContainer: {
     flex: 1,
     flexDirection: 'row',
-    // justifyContent: 'space-between',
     marginTop: 50,
-    // borderColor: 'black',
-    // borderStyle: 'solid',
-    // borderWidth: 3,
   },
 });
 
