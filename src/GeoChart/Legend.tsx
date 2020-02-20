@@ -7,12 +7,12 @@ interface Props {
   style?: {};
 }
 const styles = StyleSheet.create({
-  container: { flex: 1, marginLeft: 30 },
-  header: { fontSize: 40, marginTop: 50, height: 150 },
+  container: { flex: 1, marginLeft: 30, backgroundColor: 'red' },
+  header: { fontSize: 30, marginBottom: 20 },
   legendRowContainer: { alignSelf: 'center' },
   legendRow: { flexDirection: 'row' },
-  legendRowColorSwatch: { width: 120, height: 50 },
-  legendRowText: { fontSize: 40, marginLeft: 20 },
+  legendRowColorSwatch: { width: 120, height: 40 },
+  legendRowText: { fontSize: 30, marginLeft: 20 },
 });
 
 const Legend: React.FunctionComponent<Props> = ({

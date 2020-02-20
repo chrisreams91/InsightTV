@@ -24,7 +24,7 @@ const tabs: Tab[] = [
 ];
 
 const App = () => {
-  return <TVTabBar tabs={tabs} defaultTabKey="Animations" />;
+  return <TVTabBar tabs={tabs} defaultTabKey="GeoChart" />;
 };
 
 export default App;

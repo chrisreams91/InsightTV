@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import axios from 'axios';
 import moment from 'moment';
 import Config from 'react-native-config';
 
 import Legend from './Legend';
 import UnitedStatesMap from './UnitedStatesMap';
+import UpdatedStatus from './UpdatedStatus';
 import stateDimensions from './StateDimensions.json';
 import ButtonContainer from '../components/ButtonContainer';
 import Button from '../components/Button';
@@ -57,9 +58,11 @@ const GeoChart: React.FunctionComponent = () => {
   const [data, setData] = useState<Data>(defaultData);
   const [range, setRange] = useState<1 | 7 | 30>(1);
   const [lastUpdated, setLastUpdated] = useState('No data yet.');
+  const [loading, setLoading] = useState(true);
 
   const fetchData = (timeRange: number) => {
     console.log(`fetching data with range ${timeRange}`);
+    setLoading(true);
     axios
       .get(`${Config.API_URL}/${timeRange}`)
       .then(response => {
@@ -67,9 +70,11 @@ const GeoChart: React.FunctionComponent = () => {
         updatedData[range] = response.data;
         setData(updatedData);
         console.log('updated data: ', updatedData[range]);
+        setLoading(false);
       })
       .catch(error => {
         console.log(error);
+        setLoading(false);
       });
   };
 
@@ -115,9 +120,7 @@ const GeoChart: React.FunctionComponent = () => {
       <ButtonContainer buttons={[day, week, month]}>
         <UnitedStatesMap colorRanges={colorRanges} range={range} data={data} />
         <View style={styles.legendContainer}>
-          <Text style={styles.lastUpdatedText}>
-            Last updated: {lastUpdated}
-          </Text>
+          <UpdatedStatus lastUpdated={lastUpdated} loading={loading} />
           <Legend
             title={legendDescription}
             legendKey={colorRanges}
