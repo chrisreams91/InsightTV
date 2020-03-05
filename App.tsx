@@ -7,6 +7,11 @@ import AnimationsTest from './AnimationsTest';
 
 const tabs: Tab[] = [
   {
+    key: 'GeoChart',
+    name: 'GeoChart',
+    value: <GeoChart />,
+  },
+  {
     key: 'Animations',
     name: 'Animations',
     value: <AnimationsTest />,
@@ -15,11 +20,6 @@ const tabs: Tab[] = [
     key: 'Home',
     name: 'Home',
     value: <Home />,
-  },
-  {
-    key: 'GeoChart',
-    name: 'GeoChart',
-    value: <GeoChart />,
   },
 ];
 

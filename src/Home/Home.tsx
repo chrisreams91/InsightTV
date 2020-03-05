@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import SingleStat from '../components/SingleStat';
 import Button from '../components/Button';
 // import axios from 'axios';
@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 200,
     alignSelf: 'center',
-    backgroundColor: 'red',
   },
   button: {
     height: 80,
@@ -25,10 +24,9 @@ const styles = StyleSheet.create({
   },
   dataContainer: {
     flexDirection: 'row',
-    marginTop: 150,
+    marginTop: 50,
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    backgroundColor: 'grey',
   },
   singleStatsContainer: {
     flexDirection: 'row',
@@ -99,6 +97,15 @@ const Home: React.FunctionComponent = () => {
         <Button onPress={() => filterData(7)} text="Weekly" />
         <Button onPress={() => filterData(30)} text="Month" />
       </View>
+      <Text
+        style={{
+          fontSize: 80,
+          textAlign: 'center',
+          paddingTop: 50,
+        }}
+      >
+        Help me Greg !
+      </Text>
       <View style={styles.dataContainer}>
         <View style={styles.singleStatsContainer}>
           <View style={styles.singleStatsColumn}>

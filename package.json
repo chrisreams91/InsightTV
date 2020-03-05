@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios  --simulator 'Apple TV 4K' --scheme 'dev' --configuration=Debug",
-    "ios-prod": "react-native run-ios  --simulator 'Apple TV 4K' --scheme 'prod' --configuration=Release",
+    "dev": "react-native run-ios  --simulator 'Apple TV 4K' --scheme 'dev' --configuration=Debug",
+    "prod": "react-native run-ios  --simulator 'Apple TV 4K' --scheme 'prod' --configuration=Release",
+    "install-prod": "react-native run-ios --scheme 'prod' --configuration=Release",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
