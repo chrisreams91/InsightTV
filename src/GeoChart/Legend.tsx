@@ -1,26 +1,31 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-interface Props {
-  legendKey: { [key: number]: string };
-  title?: string;
-  style?: {};
-}
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
     margin: 30,
-    // backgroundColor: 'red',
+    backgroundColor: 'red',
   },
-  header: { fontSize: 30, marginBottom: 20, flex: 1, alignSelf: 'flex-end' },
-  legendRowContainer: { alignSelf: 'center' },
-  legendRow: { flexDirection: 'row' },
-  legendRowColorSwatch: { width: 120, height: 40 },
+  description: {
+    fontSize: 30,
+  },
+  legendRowContainer: { padding: 20 },
+  legendRow: {
+    flexDirection: 'row',
+    paddingVertical: 5,
+  },
+  legendRowColorSwatch: { width: 40, height: 40, borderRadius: 8 },
   legendRowText: { fontSize: 30, marginLeft: 20 },
 });
 
+interface Props {
+  legendKey: { [key: number]: string };
+  description?: string;
+  style?: {};
+}
+
 const Legend: React.FunctionComponent<Props> = ({
-  title = '',
+  description = '',
   legendKey,
   style = {},
 }: Props) => {
@@ -34,14 +39,14 @@ const Legend: React.FunctionComponent<Props> = ({
             backgroundColor: legendKey[key],
           }}
         />
-        <Text style={styles.legendRowText}>{key}</Text>
+        <Text style={styles.legendRowText}>- {key}</Text>
       </View>
     ));
 
   return (
     <View style={styles.container}>
-      <Text style={{ ...style, ...styles.header }}>{title}</Text>
       <View style={styles.legendRowContainer}>{legendRows}</View>
+      <Text style={{ ...style, ...styles.description }}>* {description}</Text>
     </View>
   );
 };

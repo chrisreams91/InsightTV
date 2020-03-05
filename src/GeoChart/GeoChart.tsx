@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import axios from 'axios';
 import moment from 'moment';
 import Config from 'react-native-config';
@@ -11,6 +11,7 @@ import stateDimensions from './StateDimensions.json';
 import ButtonContainer from '../components/ButtonContainer';
 import Button from '../components/Button';
 import { useInterval } from '../util';
+import TopStates from './TopStates';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'grey',
   },
   legendContainer: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'space-between',
     // backgroundColor: 'blue',
   },
@@ -99,20 +100,13 @@ const GeoChart: React.FunctionComponent = () => {
 
   const colorRanges: { [index: number]: string } = {
     0: '#e6e6ff',
-    1: '#ccccff',
-    5: '#b3b3ff',
-    10: '#9999ff',
-    20: '#8080ff',
-    35: '#6666ff',
-    50: '#4d4dff',
-    100: '#3333ff',
-    175: '#0000ff',
-    250: '#0000cc',
+    10: '#b3b3ff',
+    25: '#9999ff',
+    50: '#8080ff',
+    100: '#6666ff',
+    150: '#4d4dff',
+    200: '#3333ff',
   };
-
-  const day = <Button onPress={() => setRange(1)} text="Day" />;
-  const week = <Button onPress={() => setRange(7)} text="Week" />;
-  const month = <Button onPress={() => setRange(30)} text="Month" />;
 
   const daily = 'so far today';
   const weeklyMonthly = `over the past ${range} days`;
@@ -122,13 +116,28 @@ const GeoChart: React.FunctionComponent = () => {
 
   return (
     <View style={styles.container}>
-      <ButtonContainer buttons={[day, week, month]}>
-        <UnitedStatesMap colorRanges={colorRanges} range={range} data={data} />
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}
+      >
         <View style={styles.legendContainer}>
-          <UpdatedStatus lastUpdated={lastUpdated} loading={loading} />
-          <Legend title={legendDescription} legendKey={colorRanges} />
+          <TopStates data={data[range]} />
+          <Legend legendKey={colorRanges} description={legendDescription} />
         </View>
-      </ButtonContainer>
+        {/* <View style={{}}>
+              <View style={{ backgroundColor: 'red' }}>
+                <UpdatedStatus lastUpdated={lastUpdated} loading={loading} />
+              </View>
+          </View> */}
+        <UnitedStatesMap colorRanges={colorRanges} range={range} data={data} />
+      </View>
+      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+        <Button onPress={() => setRange(1)} text="Day" />
+        <Button onPress={() => setRange(7)} text="Week" />
+        <Button onPress={() => setRange(30)} text="Month" />
+      </View>
     </View>
   );
 };
