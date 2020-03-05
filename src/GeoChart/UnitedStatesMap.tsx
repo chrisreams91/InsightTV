@@ -52,7 +52,7 @@ const UnitedStatesMap: React.FunctionComponent<Props> = ({
   };
 
   return (
-    <Svg width="1200" height="775">
+    <Svg width="1200" height="775" style={{ backgroundColor: 'green' }}>
       <G>{buildMap()}</G>
     </Svg>
   );

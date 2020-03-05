@@ -17,15 +17,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 100,
+    backgroundColor: 'blue',
   },
-  mapContainer: {
-    // marginLeft: 50,
-    // backgroundColor: 'grey',
-  },
+  contentContainer: { flexDirection: 'row' },
   legendContainer: {
-    // flex: 1,
-    justifyContent: 'space-between',
-    // backgroundColor: 'blue',
+    alignItems: 'flex-start',
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    backgroundColor: 'red',
+    justifyContent: 'center',
   },
   lastUpdatedText: { fontSize: 30, alignSelf: 'center' },
 });
@@ -110,30 +113,28 @@ const GeoChart: React.FunctionComponent = () => {
 
   const daily = 'so far today';
   const weeklyMonthly = `over the past ${range} days`;
-  const legendDescription = `The number of active drivers in each state ${
+  const legendDescription = `The number of active \n drivers in each state \n ${
     range === 1 ? daily : weeklyMonthly
   }`;
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}
-      >
+      <View style={styles.contentContainer}>
         <View style={styles.legendContainer}>
           <TopStates data={data[range]} />
           <Legend legendKey={colorRanges} description={legendDescription} />
         </View>
-        {/* <View style={{}}>
-              <View style={{ backgroundColor: 'red' }}>
-                <UpdatedStatus lastUpdated={lastUpdated} loading={loading} />
-              </View>
-          </View> */}
-        <UnitedStatesMap colorRanges={colorRanges} range={range} data={data} />
+
+        <View style={{ alignSelf: 'center', alignContent: 'center' }}>
+          <UnitedStatesMap
+            colorRanges={colorRanges}
+            range={range}
+            data={data}
+          />
+        </View>
+        <UpdatedStatus lastUpdated={lastUpdated} loading={loading} />
       </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+      <View style={styles.buttonContainer}>
         <Button onPress={() => setRange(1)} text="Day" />
         <Button onPress={() => setRange(7)} text="Week" />
         <Button onPress={() => setRange(30)} text="Month" />

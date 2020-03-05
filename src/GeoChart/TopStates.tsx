@@ -6,7 +6,10 @@ const styles = StyleSheet.create({
     margin: 30,
     backgroundColor: 'red',
   },
-  header: { fontSize: 35, marginVertical: 10 },
+  header: { fontSize: 35, fontWeight: 'bold', marginVertical: 10 },
+  dataContainer: {
+    alignItems: 'center',
+  },
   text: { fontSize: 30 },
 });
 
@@ -23,12 +26,12 @@ const TopStates: React.FunctionComponent<Props> = ({
     .sort((a, b) => b - a)
     .slice(0, 5);
 
-  // wow this is janky as fuck
+  // wow this is janky as fuck - doesnt handle dups
   const sortedData = highestStates.map(count => {
     return Object.keys(data)
       .map(x => {
         if (data[x] === count) {
-          return `${x} - ${count}`;
+          return `${x}  -  ${count}`;
         } else {
           return false;
         }
@@ -38,9 +41,9 @@ const TopStates: React.FunctionComponent<Props> = ({
   });
 
   return (
-    <View style={{ margin: 30, ...style }}>
+    <View style={{ ...styles.container, ...style }}>
       <Text style={styles.header}>Top States</Text>
-      {sortedData}
+      <View style={styles.dataContainer}>{sortedData}</View>
     </View>
   );
 };
