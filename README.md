@@ -17,4 +17,6 @@ The "Home" tab is left in place for a more general dashboard section
 Started working on a "last updated" section that is currently in some of the mock ups
 Would also love to make use of the fantastic Lottie library
 
+Currently only known to build to tvOS, would like to implement android at some point
+
 
