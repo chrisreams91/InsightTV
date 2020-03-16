@@ -4,7 +4,6 @@ import { View, Text, StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     margin: 30,
-    backgroundColor: 'red',
   },
   description: {
     fontSize: 30,
@@ -14,7 +13,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 5,
   },
-  legendRowColorSwatch: { width: 40, height: 40, borderRadius: 8 },
+  legendRowColorSwatch: {
+    width: 40,
+    height: 40,
+    borderRadius: 8,
+    borderStyle: 'solid',
+    borderColor: 'black',
+    borderWidth: 1,
+  },
   legendRowText: { fontSize: 30, marginLeft: 20 },
 });
 

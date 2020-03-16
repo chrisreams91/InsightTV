@@ -6,9 +6,7 @@ import Config from 'react-native-config';
 
 import Legend from './Legend';
 import UnitedStatesMap from './UnitedStatesMap';
-import UpdatedStatus from './UpdatedStatus';
 import stateDimensions from './StateDimensions.json';
-import ButtonContainer from '../components/ButtonContainer';
 import Button from '../components/Button';
 import { useInterval } from '../util';
 import TopStates from './TopStates';
@@ -17,9 +15,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 100,
-    backgroundColor: 'blue',
   },
   contentContainer: { flexDirection: 'row' },
+  mapContainer: { alignSelf: 'center', alignContent: 'center' },
   legendContainer: {
     alignItems: 'flex-start',
   },
@@ -27,8 +25,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',
-    backgroundColor: 'red',
     justifyContent: 'center',
+    padding: 20,
   },
   lastUpdatedText: { fontSize: 30, alignSelf: 'center' },
 });
@@ -113,7 +111,7 @@ const GeoChart: React.FunctionComponent = () => {
 
   const daily = 'so far today';
   const weeklyMonthly = `over the past ${range} days`;
-  const legendDescription = `The number of active \n drivers in each state \n ${
+  const legendDescription = `The number of active \n users in each state \n ${
     range === 1 ? daily : weeklyMonthly
   }`;
 
@@ -124,15 +122,13 @@ const GeoChart: React.FunctionComponent = () => {
           <TopStates data={data[range]} />
           <Legend legendKey={colorRanges} description={legendDescription} />
         </View>
-
-        <View style={{ alignSelf: 'center', alignContent: 'center' }}>
+        <View style={styles.mapContainer}>
           <UnitedStatesMap
             colorRanges={colorRanges}
             range={range}
             data={data}
           />
         </View>
-        <UpdatedStatus lastUpdated={lastUpdated} loading={loading} />
       </View>
       <View style={styles.buttonContainer}>
         <Button onPress={() => setRange(1)} text="Day" />

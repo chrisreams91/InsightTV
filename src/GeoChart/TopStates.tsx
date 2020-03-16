@@ -5,7 +5,6 @@ import _ from 'lodash';
 const styles = StyleSheet.create({
   container: {
     margin: 30,
-    backgroundColor: 'red',
   },
   header: { fontSize: 35, fontWeight: 'bold', marginVertical: 10 },
   dataContainer: {
