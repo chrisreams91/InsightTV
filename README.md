@@ -1,3 +1,6 @@
+
+![alt text](images/MVP.png)
+
 ## Building the app
 
 Due to many librarys not currently supporting tvOS out of the box we occasionally need to edit podfiles of these libraries
